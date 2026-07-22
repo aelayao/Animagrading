@@ -1,6 +1,7 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/12.15.0/firebase-app.js";
 import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.15.0/firebase-analytics.js";
-import { getAuth, signInWithEmailAndPassword, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/12.15.0/firebase-auth.js";
+import { getAuth, onAuthStateChanged, signOut} from "https://www.gstatic.com/firebasejs/12.15.0/firebase-auth.js";
+import { getFirestore, getDoc, doc} from "https://www.gstatic.com/firebasejs/12.15.0/firebase-firestore.js";
 
 //identificadores de firebase
 const firebaseConfig = {
@@ -17,12 +18,28 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
 const auth = getAuth();
+const db = getFirestore(app); //inicializa cloud firestore
 
 
 onAuthStateChanged(auth, (user) =>{
 	if (user) {
 		const uid = user.uid;
-		//mostrar graficamente
+		//mostrar graficamente:
+    const docRef = doc(db, "users", uid);
+    getDoc(docRef)
+    .then((docSnap)=>{
+      if (docSnap.exists()){
+        const userData= docSnap.data();
+        document.getElementById('usrNombre').innerText=userData.nombre;
+      }
+      else
+      {
+        console.log("pero que ha pasao");
+      }
+    })
+    .catch((error)=>{
+      console.log("Error al obtener la información.");
+    })
 	}
 	else
 	{
