@@ -24,10 +24,11 @@ const db = getFirestore(app); //inicializa cloud firestore
 onAuthStateChanged(auth, (user) =>{
 	if (user) {
 		const uid = user.uid;
-		//mostrar graficamente:
+		
     const docRef = doc(db, "users", uid);
     getDoc(docRef)
-    .then((docSnap)=>{
+    //mostrar graficamente el nombre:
+    .then(async (docSnap)=>{
       if (docSnap.exists()){
         const userData= docSnap.data();
         document.getElementById('usrNombre').innerText=userData.nombre;
