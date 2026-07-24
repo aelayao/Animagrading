@@ -1,0 +1,109 @@
+:root{
+    --rojo_princip:#FF3D33;
+    --rojo_medio:#FFB1AD;
+    --rojo_claro:#FFD8D6;
+    --azul_princip:#1140CC;
+    --azul_medio:#9FB2EA;
+    --azul_claro:#CFD8F4;
+    --verde_princip:#CCF92B;
+    --verde_osc:#8EAE1E;
+    --verde_mosc:#667C15;
+    --naranja_princip:#F8B615;
+    --naranja_medio:#FAD372;
+    --azul_osc:#0F1E47;
+    --offwhite:#FFFFEF;
+    --shadow:rgba(15, 30, 71, 0.3);
+    --nav_gris:#909084;
+    --trama: radial-gradient(circle, var(--naranja_princip) 20%, transparent 25%);
+    --tooltip_b:rgba(15, 30, 71, 0.75);
+    --tooltip_w:rgba(255, 255, 255, 0.75);
+}
+*{
+	margin: 0;
+	padding: 0;
+}
+body{
+    width: 90%;
+    margin: auto;
+    font-family: Geologica;
+    background-color: var(--offwhite);
+}
+/*section*/
+
+#dentro{
+    margin: 3rem;
+}
+#titulo{
+    position: fixed;
+    top:5%;
+    font-size: 50px;
+    font-family: ClanPro;
+}
+#trapezio{
+    position: fixed;
+    top:8%;
+    height: 3rem;
+    width: 45%;
+    background-color: var(--verde_princip);
+    clip-path: polygon(60px 0%, 100% 0%, calc(100% - 60px) 100%, 0% 100%);
+}
+.trama{
+    position: fixed;
+    top:11%;
+    height: 3rem;
+    width: 45%;
+    background-image: radial-gradient(
+    circle at center,
+    var(--naranja_princip) 0.12rem,
+    transparent 0
+    );
+    background-size: .5rem .5rem;
+    background-repeat: round;
+    clip-path: polygon(60px 0%, 100% 0%, calc(100% - 60px) 100%, 0% 100%);
+}
+
+#texto{
+    position: absolute;
+    top:20%;
+    font-family: Circular std;
+}
+
+
+/*footer*/
+footer{
+    display: flex;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 80%;
+    padding: 1rem;
+}
+
+footer > p{
+    color:var(--azul_osc);
+    flex: 1 0 auto;
+}
+footer > a{
+    color:var(--azul_osc);
+    flex: 1 0 auto;
+}
+footer > a:hover{
+    color:var(--naranja_princip);
+}
+
+@font-face {
+	font-family: 'Geologica';
+	src: url('../fuentes/Geologica-Black.ttf');
+}
+@font-face {
+	font-family: 'Genos Bold';
+	src: url('../fuentes/Genos-ExtraBoldItalic.ttf');
+}
+@font-face {
+    font-family: 'ClanPro';
+    src: url('../fuentes/clanpro-4.ttf');
+}
+@font-face {
+    font-family: 'Circular std';
+    src: url('../fuentes/circular-std-medium-500.ttf');
+}

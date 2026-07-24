@@ -53,7 +53,7 @@ registrar.addEventListener("click", (event) => {
       const docRef=doc(db, "users", user.uid);
       setDoc(docRef, userData)
       .then(()=>{
-        window.location.href = "main.html";
+        window.location.href = "inicio.html";
 
       })
       .catch((error) =>{

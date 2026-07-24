@@ -43,7 +43,7 @@ ingresar.addEventListener("click", ()=>{
       //si datos de usuario coincide con matricula, llevar a pag. de inicio
       if (userData.matricula === matricula.value.trim()){
         localStorage.setItem('loggedInUserId', user.uid);
-        window.location.href = "main.html";
+        window.location.href = "inicio.html";
       }
       else{
         await signOut(auth);
