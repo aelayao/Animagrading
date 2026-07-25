@@ -6,6 +6,7 @@
     --azul_medio:#9FB2EA;
     --azul_claro:#CFD8F4;
     --verde_princip:#CCF92B;
+    --verde_claro:#F1FDA4;
     --verde_osc:#8EAE1E;
     --verde_mosc:#667C15;
     --naranja_princip:#F8B615;
@@ -23,71 +24,141 @@
 	padding: 0;
 }
 body{
+    font-family: CircularStd;
+    background-color: var(--azul_osc);
+}
+
+/*section*/
+#dentro{
+    height: 100vh;
+    display: flex;
+    flex-flow: column;
     width: 90%;
     margin: auto;
-    font-family: Geologica;
+    padding: 1rem;
     background-color: var(--offwhite);
 }
-/*section*/
-
-#dentro{
-    margin: 3rem;
+/*top*/
+#top_info{
+    display: flex;
+    justify-content:space-between;
+    flex-flow: column;
+    margin: 1rem;
+    color: var(--azul_osc);
 }
 #titulo{
-    position: fixed;
-    top:5%;
-    font-size: 50px;
-    font-family: ClanPro;
+    z-index: 3;
+    font-size: 55px;
+    font-family: Genos;
 }
 #trapezio{
-    position: fixed;
-    top:8%;
+    z-index: 2;
+    position: absolute;
+    top:6%;
     height: 3rem;
-    width: 45%;
+    width: 35%;
     background-color: var(--verde_princip);
     clip-path: polygon(60px 0%, 100% 0%, calc(100% - 60px) 100%, 0% 100%);
 }
-.trama{
-    position: fixed;
-    top:11%;
-    height: 3rem;
-    width: 45%;
-    background-image: radial-gradient(
-    circle at center,
-    var(--naranja_princip) 0.12rem,
-    transparent 0
-    );
-    background-size: .5rem .5rem;
-    background-repeat: round;
-    clip-path: polygon(60px 0%, 100% 0%, calc(100% - 60px) 100%, 0% 100%);
+#textura{
+    z-index: 1;
+    position: absolute;
+    top:4%;
+    height: 6rem;
+    width: 38%;
+}
+#top_info h2{
+    margin: .3rem 0;
+    font-family: Genos;
+    font-size: 45px;
+}
+#top_info h3{
+    margin: .2rem 0;
+    font-family: Geologica;
+    font-size: 25px;
+}
+#top_info p{
+    font-size: 20px;
 }
 
-#texto{
+#btn_volver{
     position: absolute;
-    top:20%;
-    font-family: Circular std;
+    top: 3%;
+    left: 90%;
+    width: 3rem;
+    height: 3rem;
+    border-radius: 100px;
+    padding: .7rem;
+    background-size: 45px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: var(--azul_princip);
+    background-image: url(/Animagrading/imagen/icon/ao.png);
+}
+#btn_volver:hover{
+    background-color: var(--azul_claro);
+    background-image: url(/Animagrading/imagen/icon/ao_hover.png);
+}
+
+/*nav*/
+nav{
+    margin: 1rem 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+.btn_naranj{
+    text-decoration: none;
+    font-family: Genos;
+    font-size: 45px;
+    padding: 0 .7rem;
+    color: var(--azul_osc);
+    border-radius: 15px;
+    border: 2px solid var(--naranja_princip);
+}
+.btn_naranj:hover{
+    background-color: var(--naranja_princip);
+}
+#btn_select{
+    background-color: var(--naranja_princip);
+}
+
+/*section info*/
+#info{
+    margin: 1rem;
+    padding: 2rem;
+    background-color: var(--verde_claro);
+}
+#info h3{
+    margin: .2rem 0;
+    font-family: Geologica;
+    font-size: 25px;
+}
+#info p{
+    font-size: 20px;
 }
 
 
 /*footer*/
-footer{
+#footer{
+    font-family: Geologica;
     display: flex;
     position: fixed;
     bottom: 0;
-    left: 0;
+    left: 5%;
     width: 80%;
-    padding: 1rem;
+    padding: .5rem 0;
 }
 
-footer > p{
+#footer > p{
     color:var(--azul_osc);
     flex: 1 0 auto;
 }
-footer > a{
+#footer > a{
     color:var(--azul_osc);
     flex: 1 0 auto;
 }
-footer > a:hover{
+#footer > a:hover{
     color:var(--naranja_princip);
 }
 

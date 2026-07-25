@@ -28,20 +28,66 @@ body{
 #cuaderno{
     position: relative;
     top:20px;
-    left: 60px;
-    height: 38rem;
+    left: 15%;
+    width: 75rem;
+    height: 40rem;
     padding: 2rem;
     border-radius: 55px;
     transform: rotate(-3deg);
     background-color:var(--naranja_princip);
 }
+#resorte{
+    background-image: url(/Animagrading/imagen/resorte.png);
+}
 #pag{
-    height: 36rem;
+    height: 38rem;
     padding:1rem;
     filter: drop-shadow(-5px 4px 4px var(--shadow));
-    background-image: url(/Animagrading/imagen/Rectangle\ 84.png);
+    
+    background-image: url(/Animagrading/imagen/cuad.png);
     background-color: var(--offwhite);
 }
 #content{
     transform: rotate(3deg);
+}
+
+.info_style{
+    border-bottom: 6px solid var(--rojo_princip);
+}
+
+#btn_volver{
+    transform: rotate(3deg);
+    position: fixed;
+    top: 85%;
+    left: 3%;
+    width: 3rem;
+    height: 3rem;
+    border-radius: 100px;
+    padding: .7rem;
+    background-size: 45px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: var(--azul_princip);
+    background-image: url(/Animagrading/imagen/icon/ao.png);
+}
+#btn_volver:hover{
+    background-color: var(--azul_claro);
+    background-image: url(/Animagrading/imagen/icon/ao_hover.png);
+}
+
+@font-face {
+	font-family: 'Geologica';
+	src: url('../fuentes/Geologica-Black.ttf');
+}
+@font-face {
+	font-family: 'Genos Bold';
+	src: url('../fuentes/Genos-ExtraBoldItalic.ttf');
+}
+@font-face {
+    font-family: 'ClanPro';
+    src: url('../fuentes/clanpro-4.ttf');
+}
+@font-face {
+    font-family: 'Circular std';
+    src: url('../fuentes/circular-std-medium-500.ttf');
 }
