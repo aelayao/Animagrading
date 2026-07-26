@@ -20,6 +20,8 @@ const analytics = getAnalytics(app);
 const auth = getAuth();
 const db = getFirestore(app); //inicializa cloud firestore
 
+//variables
+let logout = document.querySelector('#btn_logout');
 
 onAuthStateChanged(auth, (user) =>{
 	if (user) {
@@ -44,7 +46,17 @@ onAuthStateChanged(auth, (user) =>{
 	}
 	else
 	{
-    console.log("Deslog")
-    window.location.href = "index.html";
+    console.log("Logging out...")
+    window.location.href = "../index.html";
   }
+})
+
+//log out
+logout.addEventListener("click", (event) => {
+  signOut(auth).then(() => {
+    window.location.href = "../index.html";
+  }).catch((error) => {
+    console.log(error);
+    console.log("Problemas al cerrar sesión");
+  });
 })

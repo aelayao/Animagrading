@@ -28,6 +28,10 @@ let ingresar = document.querySelector("#btn_ingresar");
 
 
 ingresar.addEventListener("click", ()=>{
+  /*if (matricula.length !== 8){
+    alert("La matrícula debe de tener solo 8 dígitos.")
+  } ...y si los maestros no tienen matrícula numerica?*/
+
   signInWithEmailAndPassword(auth, correo.value, pass.value)
   .then(async (userCredential) => {
     // Sesión iniciada

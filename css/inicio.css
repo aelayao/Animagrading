@@ -10,6 +10,7 @@
     --verde_mosc:#667C15;
     --naranja_princip:#F8B615;
     --naranja_medio:#FAD372;
+    --naranja_claro:#FDF0D0;
     --azul_osc:#0F1E47;
     --offwhite:#FFFFEF;
     --shadow:rgba(15, 30, 71, 0.3);
@@ -59,8 +60,30 @@ nav div{
     padding: 0 50px 5px 50px;
     clip-path: polygon(30px 0%, calc(100% - 30px) 0%, 100% 100%, 0% 100%); /*forma de trapezio*/
     margin-right: -60px;
-    
 }
+
+#btn_logout{
+    transform: rotate(3deg);
+    position: fixed;
+    right: 2%;
+    top: 1%;
+    width: 2.8rem;
+    height: 2.8rem;
+    border-radius: 100px;
+    padding: .5rem;
+    border: 6px solid var(--naranja_medio);
+    background-size: 45px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: var(--naranja_princip);
+    background-image: url(/Animagrading/imagen/icon/logout.png);
+}
+#btn_logout:hover{
+    border: 6px solid var(--naranja_medio);
+    background-color: var(--naranja_claro);
+    background-image: url(/Animagrading/imagen/icon/logout_n.png);
+}
+
 /*pestañas de navegador*/
 .icon_nav{
     padding-top: .2rem;
