@@ -16,10 +16,11 @@
 
         <div id="recuadro">
             <label for="inpt_matricula">Matrícula:</label>
-            <input type="number" maxlenght="8" id="inpt_matricula">
+            <input type="text"  id="inpt_matricula">
+            <!--maxlength="8" inputmode="numeric" oninput="this.value = this.value.replace(/[^0-9]/g, '');"-->
 
             <label for="inpt_email">Correo electrónico:</label>
-            <input type="email" required id="inpt_email">
+            <input type="email" inputmode="email" required id="inpt_email">
 
             <label for="inpt_pass">Contraseña:</label>
             <input type="password" required id="inpt_pass">
