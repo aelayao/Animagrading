@@ -1,6 +1,6 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/12.15.0/firebase-app.js";
 import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.15.0/firebase-analytics.js";
-import { getAuth, onAuthStateChanged, signOut} from "https://www.gstatic.com/firebasejs/12.15.0/firebase-auth.js";
+import { getAuth, onAuthStateChanged, signOut, updateProfile} from "https://www.gstatic.com/firebasejs/12.15.0/firebase-auth.js";
 import { getFirestore, getDoc, doc} from "https://www.gstatic.com/firebasejs/12.15.0/firebase-firestore.js";
 
 //identificadores de firebase
@@ -22,18 +22,23 @@ const db = getFirestore(app); //inicializa cloud firestore
 
 //variables
 let logout = document.querySelector('#btn_logout');
+let guardar = document.querySelector('#btn_guardar');
 
+//obtener información del usuario y listener
 onAuthStateChanged(auth, (user) =>{
 	if (user) {
 		const uid = user.uid;
 		
     const docRef = doc(db, "users", uid);
     getDoc(docRef)
-    //mostrar graficamente el nombre:
+    //mostrar graficamente la información del usuario:
     .then(async (docSnap)=>{
       if (docSnap.exists()){
         const userData= docSnap.data();
         document.getElementById('usrNombre').innerText=userData.nombre;
+        document.getElementById('usrApellido').innerText=userData.apellidoPaterno;
+        document.getElementById('usrMatr').innerText=userData.matricula;
+        document.getElementById('usrCorr').innerText=userData.email;
       }
       else
       {
@@ -41,19 +46,35 @@ onAuthStateChanged(auth, (user) =>{
       }
     })
     .catch((error)=>{
+      console.log(error);
       console.log("Error al obtener la información.");
     })
 	}
 	else
 	{
-    console.log("Logging out...")
-    window.location.href = "../index.html";
+    console.log("Deslog")
+    window.location.href = "index.html";
   }
 })
 
+//actualizar información del perfil: nombre
+/* guardar.addEventListener("click", (event) => {
+  updateProfile(auth.currentUser, {
+    displayName: "Jane Q. User"
+  }).then(() => {
+    // Profile updated!
+    // ...
+  }).catch((error) => {
+    // An error occurred
+    // ...
+  });
+}) */
+
 //log out
 logout.addEventListener("click", (event) => {
-  signOut(auth).then(() => {
+  //localStorage.removeItem('userid');
+  signOut(auth)
+  .then(() => {
     window.location.href = "../index.html";
   }).catch((error) => {
     console.log(error);

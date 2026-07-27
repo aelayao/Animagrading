@@ -28,6 +28,10 @@ let ingresar = document.querySelector("#btn_ingresar");
 
 
 ingresar.addEventListener("click", ()=>{
+  /*if (matricula.length !== 8){
+    alert("La matrícula debe de tener solo 8 dígitos.")
+  } ...y si los maestros no tienen matrícula numerica?*/
+
   signInWithEmailAndPassword(auth, correo.value, pass.value)
   .then(async (userCredential) => {
     // Sesión iniciada
@@ -43,7 +47,7 @@ ingresar.addEventListener("click", ()=>{
       //si datos de usuario coincide con matricula, llevar a pag. de inicio
       if (userData.matricula === matricula.value.trim()){
         localStorage.setItem('loggedInUserId', user.uid);
-        window.location.href = "main.html";
+        window.location.href = "inicio.html";
       }
       else{
         await signOut(auth);
