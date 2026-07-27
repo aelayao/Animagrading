@@ -74,6 +74,10 @@ input{
 	border: 2px solid var(--gris_inpt_brdr);
 	background-color: var(--gris_inpt);
 }
+option *{
+	font-family: Genos;
+	background-color: #CCF92B;
+}
 #btn_regis{
 	font-size: 40px;
 	margin: 1rem;

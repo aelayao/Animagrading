@@ -28,8 +28,6 @@ let correo = document.querySelector("#inpt_email");
 let pass = document.querySelector("#inpt_pass");
 let registrar = document.querySelector("#btn_regis");
 
-const signUp = document.getElementById('submitSignUp');
-
 registrar.addEventListener("click", (event) => {
   let email = correo.value;
   let password = pass.value;
