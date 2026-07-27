@@ -31,6 +31,7 @@ let registrar = document.querySelector("#btn_regis");
 const signUp = document.getElementById('submitSignUp');
 
 registrar.addEventListener("click", (event) => {
+
   let email = correo.value;
   let password = pass.value;
   let ap = apllidp.value;
@@ -53,7 +54,7 @@ registrar.addEventListener("click", (event) => {
       const docRef=doc(db, "users", user.uid);
       setDoc(docRef, userData)
       .then(()=>{
-        window.location.href = "inicio.html";
+        window.location.href = "/Animagrading/alumnos/paginas/inicio.html";
 
       })
       .catch((error) =>{

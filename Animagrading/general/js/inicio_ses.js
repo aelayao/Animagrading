@@ -25,12 +25,10 @@ let matricula = document.querySelector("#inpt_matricula");
 let correo = document.querySelector("#inpt_email");
 let pass = document.querySelector("#inpt_pass");
 let ingresar = document.querySelector("#btn_ingresar");
-
+let matr_maestro = "abcdefgh";
 
 ingresar.addEventListener("click", ()=>{
-  /*if (matricula.length !== 8){
-    alert("La matrícula debe de tener solo 8 dígitos.")
-  } ...y si los maestros no tienen matrícula numerica?*/
+  
 
   signInWithEmailAndPassword(auth, correo.value, pass.value)
   .then(async (userCredential) => {
@@ -43,11 +41,17 @@ ingresar.addEventListener("click", ()=>{
     const userDoc = await getDoc(docRef);
     if(userDoc.exists()){
       const userData= userDoc.data();
-      console.log("eso dijo ella")
       //si datos de usuario coincide con matricula, llevar a pag. de inicio
       if (userData.matricula === matricula.value.trim()){
         localStorage.setItem('loggedInUserId', user.uid);
-        window.location.href = "inicio.html";
+        if(userData.matricula == matr_maestro){
+          console.log("entramos papus")
+          window.location.href = "/Animagrading/maestros/paginas/inicio.html";
+        }
+        else{
+          window.location.href = "/Animagrading/alumnos/paginas/inicio.html";
+        }
+        
       }
       else{
         await signOut(auth);
