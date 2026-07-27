@@ -3,6 +3,7 @@
     --azul_princip:#1140CC;
     --verde_princip:#CCF92B;
     --naranja_princip:#F8B615;
+	--naranja_textobg:#F8BF32;
     --azul_osc:#0F1E47;
     --offwhite:#FFFFEF;
 	--shadow:rgba(15, 30, 71, 0.3);
@@ -17,6 +18,36 @@ body{
 	color:var(--azul_osc);
 	background-color: var(--naranja_princip);
 }
+/*texto del fondo*/
+#textobg{
+    z-index: -1;
+    position: absolute;
+    top: 0;
+	left: 0;
+	width: 100%;
+    height: 100%;
+	transform: rotate(-8deg);
+}
+#textobg img{
+	width: 100%;
+    height: 100%;
+	object-fit: cover;
+}
+/*#texto_bg{
+    z-index: -1;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+	background-repeat: repeat;
+}
+.texto_ptrn{
+	font-size: 50px;
+    font-family: Genos Bold;
+    color: var(--naranja_textobg);
+}*/
+
 #general{
 	position: absolute;
 	top:50%;

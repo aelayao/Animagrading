@@ -17,7 +17,17 @@
             <label for="inpt_nombre">Nombre:</label>
             <input type="text" id="inpt_nombre" required>
             <label for="inpt_nombre">Apellido paterno:</label>
-            <input type="text" id="inpt_apllidp">
+            <input type="text" id="inpt_apllidp" required>
+
+            <label for="inpt_matricula">Matrícula:</label>
+            <input type="number" min="0" max="99999999" required id="inpt_matricula">
+
+            <label for="slct_grupo">Grupo actual:</label>
+            <select name="grupo" id="grupo" required>
+                <option value="9TMA">9°A TM</option>
+                <option value="9TMB">9°B TM</option>
+                <option value="8TV">8° TV</option>
+            </select>
 
             <label for="inpt_matricula">Matrícula:</label>
             <input type="number" min="0" max="99999999" required id="inpt_matricula">
