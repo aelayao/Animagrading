@@ -25,7 +25,8 @@
 	margin: 0;
 	padding: 0;
 }
-body{
+body, html{
+    overflow: hidden;
     background-color: var(--azul_osc);
 }
 #cuaderno{
@@ -98,7 +99,10 @@ h1{
 }
 #foto a{
     text-decoration: none;
-    color: var(--azul_osc);
+}
+#usrImg{
+    width: 3rem;
+    height: 3rem;
 }
 
 .datos{

@@ -39,6 +39,7 @@ onAuthStateChanged(auth, (user) =>{
         document.getElementById('usrApellido').innerText=userData.apellidoPaterno;
         document.getElementById('usrMatr').innerText=userData.matricula;
         document.getElementById('usrCorr').innerText=userData.email;
+        document.getElementById('usrImg').href=userData.fotoUrl;
       }
       else
       {
@@ -53,31 +54,18 @@ onAuthStateChanged(auth, (user) =>{
 	else
 	{
     console.log("Deslog")
-    window.location.href = "index.html";
+    window.location.href = "../index.html";
   }
 })
-
-//actualizar información del perfil: nombre
-/* guardar.addEventListener("click", (event) => {
-  updateProfile(auth.currentUser, {
-    displayName: "Jane Q. User"
-  }).then(() => {
-    // Profile updated!
-    // ...
-  }).catch((error) => {
-    // An error occurred
-    // ...
-  });
-}) */
 
 //log out
 logout.addEventListener("click", (event) => {
   //localStorage.removeItem('userid');
   signOut(auth)
-  .then(() => {
-    window.location.href = "../index.html";
-  }).catch((error) => {
-    console.log(error);
-    console.log("Problemas al cerrar sesión");
-  });
+    .then(() => {
+      window.location.href = "/Animagrading/index.html";
+    }).catch((error) => {
+      console.log(error);
+      console.log("Problemas al cerrar sesión");
+    });
 })

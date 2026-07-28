@@ -14,7 +14,11 @@
 	padding: 0;
 	font-family: Geologica;
 }
+html{
+	overflow: hidden;
+}
 body{
+	overflow: hidden;
 	color:var(--azul_osc);
 	background-color: var(--naranja_princip);
 }

@@ -75,7 +75,7 @@ logout.addEventListener("click", (event) => {
   //localStorage.removeItem('userid');
   signOut(auth)
   .then(() => {
-    window.location.href = "../index.html";
+    window.location.href = "/Animagrading/index.html";
   }).catch((error) => {
     console.log(error);
     console.log("Problemas al cerrar sesión");
