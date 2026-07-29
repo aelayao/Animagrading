@@ -54,7 +54,7 @@ registrar.addEventListener("click", (event) => {
       const docRef=doc(db, "users", user.uid);
       setDoc(docRef, userData)
       .then(()=>{
-        window.location.href = "/Animagrading/alumnos/paginas/inicio.html";
+        window.location.href = "/alumnos/paginas/inicio.html";
 
       })
       .catch((error) =>{

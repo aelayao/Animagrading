@@ -46,10 +46,10 @@ ingresar.addEventListener("click", ()=>{
         localStorage.setItem('loggedInUserId', user.uid);
         if(userData.matricula == matr_maestro){
           console.log("entramos papus")
-          window.location.href = "/Animagrading/maestros/paginas/inicio.html";
+          window.location.href = "/Animagrading/Animagrading/maestros/paginas/inicio.html";
         }
         else{
-          window.location.href = "/Animagrading/alumnos/paginas/inicio.html";
+          window.location.href = "/Animagrading/Animagrading/alumnos/paginas/inicio.html";
         }
         
       }

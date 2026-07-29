@@ -10,13 +10,18 @@
     --verde_mosc:#667C15;
     --naranja_princip:#F8B615;
     --naranja_medio:#FAD372;
+    --naranja_claro:#FDF0D0;
     --azul_osc:#0F1E47;
     --offwhite:#FFFFEF;
     --shadow:rgba(15, 30, 71, 0.3);
     --nav_gris:#909084;
+    --gris_cuadro:#F2F2DA;
+    --gris_osc:#B9B9B5;
     --trama: radial-gradient(circle, var(--naranja_princip) 20%, transparent 25%);
     --tooltip_b:rgba(15, 30, 71, 0.75);
     --tooltip_w:rgba(255, 255, 255, 0.75);
+    --cinta_azl:rgba(17, 64, 204, 0.5);
+    --cinta_verd:rgba(204, 249, 43, 0.5);
 }
 *{
 	margin: 0;
@@ -57,8 +62,29 @@ nav div{
     padding: 0 50px 5px 50px;
     clip-path: polygon(30px 0%, calc(100% - 30px) 0%, 100% 100%, 0% 100%); /*forma de trapezio*/
     margin-right: -60px;
-    
 }
+
+#btn_logout{
+    position: fixed;
+    right: 2%;
+    top: 1%;
+    width: 2.8rem;
+    height: 2.8rem;
+    border-radius: 100px;
+    padding: .5rem;
+    border: 6px solid var(--naranja_medio);
+    background-size: 45px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: var(--naranja_princip);
+    background-image: url(/Animagrading/general/imagen/icon/logout.png);
+}
+#btn_logout:hover{
+    border: 6px solid var(--naranja_medio);
+    background-color: var(--naranja_claro);
+    background-image: url(/Animagrading/general/imagen/icon/logout_n.png);
+}
+
 /*pestañas de navegador*/
 .icon_nav{
     padding-top: .2rem;
@@ -77,7 +103,7 @@ nav div{
 #pest_perf{
     background-color: var(--azul_princip);
     display: inline;
-    z-index: 3;
+    z-index: 2;
     /*filter: drop-shadow(18px 0px 20px var(--shadow));*/
 }
 #pest_perf a{
@@ -90,7 +116,7 @@ nav div{
     color:var(--azul_claro);
 }
 
- 
+
 #pest_calif{
     background-color: var(--verde_princip);
     display: inline;
@@ -129,23 +155,23 @@ nav div{
 }
 #titulo{
     position: absolute;
-    top:13%;
+    top:21%;
     font-size: 50px;
     font-family: ClanPro;
 }
 #trapezio{
     position: absolute;
-    top:15%;
+    top:24%;
     height: 3rem;
-    width: 32%;
+    width: 50%;
     background-color: var(--naranja_princip);
     clip-path: polygon(60px 0%, 100% 0%, calc(100% - 60px) 100%, 0% 100%);
 }
 .trama{
     position: absolute;
-    top:17%;
+    top:27%;
     height: 3rem;
-    width: 32%;
+    width: 50%;
     background-image: radial-gradient(
     circle at center,
     var(--naranja_princip) 0.12rem,
@@ -155,13 +181,20 @@ nav div{
     background-repeat: round;
     clip-path: polygon(60px 0%, 100% 0%, calc(100% - 60px) 100%, 0% 100%);
 }
-
 /*contenido después de éste punto*/
-
+#contenido{
+    position: absolute;
+    top:37%;
+    width: 90%;
+    display:flex;
+    justify-content:space-between;
+    flex-direction: column;
+}
 
 
 /*footer*/
 footer{
+    display: flex;
     position: fixed;
     bottom: 0;
     left: 0;
@@ -172,6 +205,14 @@ footer{
 
 footer > p{
     color:var(--offwhite);
+    flex: 1 0 auto;
+}
+footer > a{
+    color:var(--offwhite);
+    flex: 1 0 auto;
+}
+footer > a:hover{
+    color:var(--naranja_princip);
 }
 #mini_iaev_cont{
     display: flex;
@@ -179,7 +220,7 @@ footer > p{
     justify-content: center;
 }
 #mini_iaev{
-    position: absolute;
+    position: fixed;
     bottom: 1rem;
     right: 0;
     width: 13rem;
@@ -188,114 +229,17 @@ footer > p{
 
 @font-face {
 	font-family: 'Geologica';
-	src: url('../fuentes/Geologica-Black.ttf');
+	src: url('/Animagrading/general/fuentes/Geologica-Black.ttf');
 }
 @font-face {
 	font-family: 'Genos Bold';
-	src: url('../fuentes/Genos-ExtraBoldItalic.ttf');
+	src: url('/Animagrading/general/fuentes/Genos-ExtraBoldItalic.ttf');
 }
 @font-face {
     font-family: 'ClanPro';
-    src: url('../fuentes/clanpro-4.ttf');
+    src: url('/Animagrading/general/fuentes/clanpro-4.ttf');
 }
 @font-face {
     font-family: 'Circular std';
-    src: url('../fuentes/circular-std-medium-500.ttf');
-}
-#general{
-	position: absolute;
-	top:38%;
-	left:50%;
-	transform: translate(-50%, -50%);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-#general{
-
-    width:90%;
-    margin:auto;
-    margin-top:40px;
-
-}
-
-#contenedorGrupos{
-
-    display:grid;
-
-    grid-template-columns:repeat(3,450px);
-
-    justify-content:center;
-
-    gap:60px 120px;
-
-    align-items:start;
-
-}
-
-.tarjetaGrupo{
-
-    width:450px;
-
-    position:relative;
-
-}
-.btnGrupo{
-
-    width:100%;
-    height:55px;
-
-    border-radius:20px;
-
-    border:none;
-
-    background:#d9ff00;
-
-    font-size:22px;
-
-    font-weight:bold;
-
-    cursor:pointer;
-
-}
-
-.listaAlumnos{
-
-    display:none;
-
-    position:absolute;
-
-    top:70px;
-
-    left:0;
-
-    width:100%;
-
-    background:#eefbb0;
-
-    border-radius:20px;
-
-    padding:20px;
-
-    z-index:100;
-
-    box-shadow:0 5px 15px rgba(0,0,0,.2);
-
-}
-
-.listaAlumnos ol{
-
-    margin:0;
-    padding-left:25px;
-
-}
-
-.listaAlumnos li{
-
-    font-size:22px;
-
-    font-weight:bold;
-
-    margin:8px 0;
-
+    src: url('/Animagrading/general/fuentes/circular-std-medium-500.ttf');
 }

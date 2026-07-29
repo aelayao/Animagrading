@@ -80,7 +80,7 @@ guardar.addEventListener("click", async (event) => {
     if (nuevoEml !== "") 
       {actFirestore.email = nuevoEml;}
     if (nuevaFoto !== "") 
-      {actFirestore.fotoUrl = nuevaFoto;}
+      {actFirestore.photoURL = nuevaFoto;}
 
     if(Object.keys(actFirestore).length > 0){
       await updateDoc(updtDocRef, actFirestore);
@@ -90,6 +90,9 @@ guardar.addEventListener("click", async (event) => {
       await verifyBeforeUpdateEmail(user, nuevoEml);
       alert("Se ha enviado un link de verificación a tu correo electronico, por favor revisalo para realizar el cambio.");
     }*/
+   if(nuevaFoto){
+    fotoUrl.src = nuevaFoto;
+   }
     alert("Cambios al perfil guardados con éxito!")
     window.location.href = "perfil.html";
   }

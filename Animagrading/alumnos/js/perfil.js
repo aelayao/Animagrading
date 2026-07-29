@@ -26,6 +26,7 @@ let guardar = document.querySelector('#btn_guardar');
 
 //obtener información del usuario y listener
 onAuthStateChanged(auth, (user) =>{
+  
 	if (user) {
 		const uid = user.uid;
 		
@@ -35,11 +36,14 @@ onAuthStateChanged(auth, (user) =>{
     .then(async (docSnap)=>{
       if (docSnap.exists()){
         const userData= docSnap.data();
+        console.log("Firestore User Data:", userData);
+
         document.getElementById('usrNombre').innerText=userData.nombre;
         document.getElementById('usrApellido').innerText=userData.apellidoPaterno;
         document.getElementById('usrMatr').innerText=userData.matricula;
         document.getElementById('usrCorr').innerText=userData.email;
-        document.getElementById('usrImg').href=userData.fotoUrl;
+        const imagenLink = userData.photoURL || userData.photoUrl || user.photoURL || '/Animagrading/general/imagen/user_basic.png';
+        document.getElementById('usrImg').src = imagenLink;
       }
       else
       {
