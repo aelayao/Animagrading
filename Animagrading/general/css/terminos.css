@@ -38,13 +38,13 @@ body{
     margin: 3rem;
 }
 #titulo{
-    position: fixed;
+    position: absolute;
     top:5%;
     font-size: 50px;
     font-family: ClanPro;
 }
 #trapezio{
-    position: fixed;
+    position: absolute;
     top:8%;
     height: 3rem;
     width: 45%;
@@ -52,7 +52,7 @@ body{
     clip-path: polygon(60px 0%, 100% 0%, calc(100% - 60px) 100%, 0% 100%);
 }
 .trama{
-    position: fixed;
+    position: absolute;
     top:11%;
     height: 3rem;
     width: 45%;
@@ -65,11 +65,29 @@ body{
     background-repeat: round;
     clip-path: polygon(60px 0%, 100% 0%, calc(100% - 60px) 100%, 0% 100%);
 }
-
-#terminos{
+#cont_terminos{
     position: absolute;
     top:20%;
+}
+#terminos{
+    margin-bottom: 10%;
     font-family: Circular std;
+}
+.lista_a{
+    list-style: lower-alpha;
+}
+ol {
+    counter-reset: item; /* reset para que no se repitan los números*/
+}
+ol li /*dan la indentación a cada elemento de lista, según su nivel*/
+{
+    display: block;
+    text-indent: -2em; 
+    margin-left: 3em;
+}
+ol li::before{
+    /*contador(número .) y agregar el punto final y un espacio entre el num y el texto*/
+    content: counters(item, ".") ". ";counter-increment: item /*incrementar en base al num anterior*/
 }
 
 .btn_azul{
