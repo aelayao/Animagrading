@@ -219,11 +219,11 @@ footer > p{
 
 }
 
-#contenedorGrupos{
+#contenedorAsignaciones{
 
     display:grid;
 
-    grid-template-columns:repeat(3,450px);
+    grid-template-columns:repeat(2,450px);
 
     justify-content:center;
 

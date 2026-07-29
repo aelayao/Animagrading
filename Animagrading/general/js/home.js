@@ -88,7 +88,7 @@ onAuthStateChanged(auth, (user) =>{
 //log out
 logout.addEventListener("click", (event) => {
   signOut(auth).then(() => {
-    window.location.href = "/Animagrading/index.html";
+    window.location.href = "/index.html";
   }).catch((error) => {
     console.log(error);
     console.log("Problemas al cerrar sesión");
