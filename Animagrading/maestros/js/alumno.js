@@ -44,21 +44,33 @@ onAuthStateChanged(auth, (user) =>{
 	else
 	{
     console.log("Deslog")
-    window.location.href = "index.html";
+    window.location.href = "/Animagrading/index.html";
   }
 })
+ 
+// CALIFICACIÓN AUTOMÁTICA
+// ==========================================
+const txtNota1 = document.getElementById('nota1');
+const txtNota2 = document.getElementById('nota2');
+const txtNota3 = document.getElementById('nota3');
+const txtTotal = document.getElementById('total');
 
-// 
-// 1. Buscamos el botón de guardar y la ventana emergente
-const botonGuardar = document.querySelector('.btn-guardar');
-const modalConfirmacion = document.getElementById('modal-confirmacion');
+function calcularCalificacionTotal() {
+    // Si la caja está vacía, toma un 0
+    const n1 = parseFloat(txtNota1.value) || 0;
+    const n2 = parseFloat(txtNota2.value) || 0;
+    const n3 = parseFloat(txtNota3.value) || 0;
 
-// 2. Al dar clic en guardar, encendemos la ventana
-if (botonGuardar) {
-    botonGuardar.addEventListener('click', (evento) => {
-        evento.preventDefault(); // Evita que la página intente procesar un formulario
-        if (modalConfirmacion) {
-            modalConfirmacion.style.display = 'flex'; // Muestra la ventana
-        }
-    });
+    // Se aplican los porcentajes de la rúbrica (10%, 40%, 50%)
+    const resultado = (n1 * 0.10) + (n2 * 0.40) + (n3 * 0.50);
+
+    // Muestra el resultado final
+    if (txtTotal) {
+        txtTotal.value = resultado.toFixed(2);
+    }
 }
+
+// Escucha cuando se escribe en cada caja para actualizar el total al instante
+if (txtNota1) txtNota1.addEventListener('input', calcularCalificacionTotal);
+if (txtNota2) txtNota2.addEventListener('input', calcularCalificacionTotal);
+if (txtNota3) txtNota3.addEventListener('input', calcularCalificacionTotal);

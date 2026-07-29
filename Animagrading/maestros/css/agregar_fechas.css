@@ -1,0 +1,310 @@
+:root{
+    --rojo_princip:#FF3D33;
+    --rojo_medio:#FFB1AD;
+    --rojo_claro:#FFD8D6;
+    --azul_princip:#1140CC;
+    --azul_medio:#9FB2EA;
+    --azul_claro:#CFD8F4;
+    --verde_princip:#CCF92B;
+    --verde_osc:#8EAE1E;
+    --verde_mosc:#667C15;
+    --naranja_princip:#F8B615;
+    --naranja_medio:#FAD372;
+    --azul_osc:#0F1E47;
+    --offwhite:#FFFFEF;
+    --shadow:rgba(15, 30, 71, 0.3);
+    --nav_gris:#909084;
+    --trama: radial-gradient(circle, var(--naranja_princip) 20%, transparent 25%);
+    --tooltip_b:rgba(15, 30, 71, 0.75);
+    --tooltip_w:rgba(255, 255, 255, 0.75);
+}
+*{
+	margin: 0;
+	padding: 0;
+}
+body{
+    font-family: Geologica;
+    background-color: var(--offwhite);
+    background-size: cover;
+	background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+	background-image: linear-gradient(180deg, rgba(255, 255, 239, 1) 0%, rgba(255, 255, 221, 1) 77%, rgba(255, 255, 182, 1) 100%);
+}
+/*navegador*/
+header{
+    background-color: var(--azul_osc);
+    margin: auto;
+}
+nav{
+    display: flex;
+    align-items: end;
+    padding: 1.5rem 0 0 0;
+}
+nav a{
+    text-decoration: none;
+    font-family: Genos Bold;
+    font-size: 48px;
+}
+nav div{
+    padding: .5rem 2rem 0 2rem;
+}
+.nav_pest{
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 55px;
+    padding: 0 50px 5px 50px;
+    clip-path: polygon(30px 0%, calc(100% - 30px) 0%, 100% 100%, 0% 100%); /*forma de trapezio*/
+    margin-right: -60px;
+    
+}
+/*pestañas de navegador*/
+.icon_nav{
+    padding-top: .2rem;
+    width: 45px;
+    height: 45px;
+}
+#pest_ini{
+    display: inline; 
+    background-color: var(--offwhite);
+    z-index: 4;
+}
+#pest_ini a{
+    color:var(--nav_gris);
+}
+
+#pest_perf{
+    background-color: var(--azul_princip);
+    display: inline;
+    z-index: 3;
+    /*filter: drop-shadow(18px 0px 20px var(--shadow));*/
+}
+#pest_perf a{
+    color:var(--azul_medio);
+}
+#pest_perf:hover{
+    z-index: 10;
+}
+#pest_perf a:hover{
+    color:var(--azul_claro);
+}
+
+
+#pest_calif{
+    background-color: var(--verde_princip);
+    display: inline;
+    z-index: 2;
+}
+#pest_calif a{
+    color:var(--verde_osc);
+}
+#pest_calif:hover{
+    z-index: 10;
+}
+#pest_calif a:hover{
+    color:var(--verde_mosc);
+}
+
+
+#pest_fecha{
+    background-color: var(--rojo_princip);
+    display: inline;
+    z-index: 1;
+}
+#pest_fecha a{
+    color:var(--rojo_medio);
+}
+#pest_fecha:hover{
+    z-index: 10;
+}
+#pest_fecha a:hover{
+    color:var(--rojo_claro);
+}
+
+/*section*/
+
+#dentro{
+    margin: 3rem;
+}
+#titulo{
+    position: absolute;
+    top:21%;
+    font-size: 50px;
+    font-family: ClanPro;
+    color: var(--azul_osc);
+}
+#trapezio{
+    position: absolute;
+    top:24%;
+    height: 3rem;
+    width: 32%;
+    background-color: var(--naranja_princip);
+    clip-path: polygon(60px 0%, 100% 0%, calc(100% - 60px) 100%, 0% 100%);
+}
+.trama{
+    position: absolute;
+    top:27%;
+    height: 3rem;
+    width: 32%;
+    background-image: radial-gradient(
+    circle at center,
+    var(--naranja_princip) 0.12rem,
+    transparent 0
+    );
+    background-size: .5rem .5rem;
+    background-repeat: round;
+    clip-path: polygon(60px 0%, 100% 0%, calc(100% - 60px) 100%, 0% 100%);
+}
+/*contenido después de éste punto*/
+
+/* Acomoda el texto abajo del titulo */
+.subtitulo-formulario {
+    position: absolute;
+    top: 36%; /* Lo empuja justo debajo de los puntitos naranjas */
+    font-family: 'Geologica', sans-serif;
+    font-size: 24px;
+    font-weight: bold;
+    color: #000000;
+}
+
+/* contenedor principal a llenar */
+.caja-formulario-evaluacion {
+    position: absolute;
+    top: 44%;                  /* Lo acomoda debajo del subtítulo */
+    left: 3rem;                /* Alineado con el margen izquierdo de la sección */
+    width: calc(100% - 6rem);  /* Se estira a lo ancho de la pantalla respetando los márgenes */
+    max-width: 900px;          /* Evita que se deforme en pantallas gigantes */
+    background-color: var(--rojo_claro); /* El color rojo claro */
+    border: 3px solid var(--rojo_princip); /* El borde rojo */
+    border-radius: 20px;       /* Esquinas redondeadas */
+    padding: 30px;             /* Espacio interno */
+    box-shadow: 0px 4px 12px var(--shadow); /* sombra */
+    box-sizing: border-box;
+}
+
+/* Alinea los campos en una sola fila uno al lado del otro */
+.fila-formulario {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 25px; /* Espacio hacia abajo por si metemos más campos */
+}
+
+/* El bloque contenedor de cada etiqueta con su cuadro de texto */
+.grupo-campo {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* lo alinea a la izquierda */
+    gap: 10px; /* Espacio entre el texto del label y su cuadro blanco */
+    width: 45%; /* da el ancho para que se dividan en dos columnas */
+}
+
+/* Las palabras 'Fecha:' y 'Tipo:' en negrita y oscuras */
+.grupo-campo label {
+    font-family: 'Geologica', sans-serif;
+    font-size: 24px;
+    font-weight: bold;
+    color: var(--azul_osc); /* El azul oscuro de tu paleta */
+}
+
+/* Los cuadros de entrada blancos y redondeados */
+.entrada-formulario {
+    background-color: #ffffff; /* Fondo blanco limpio */
+    border: 2px solid var(--rojo_princip); /* Borde rojo delgado */
+    border-radius: 12px; /* Esquinas redondeadas como tu boceto */
+    padding: 8px 15px;
+    font-family: 'Geologica', sans-serif;
+    font-size: 18px;
+    color: #000000;
+    outline: none;
+    width: 250px; /* Ancho cómodo para escribir o seleccionar */
+    box-sizing: border-box;
+}
+
+/* Contenedor que hace el botón de GUARDAR hacia la derecha */
+.contenedor-boton-guardar {
+    display: flex;
+    justify-content: flex-end; /* Alinea el botón al lado derecho */
+    top: 73%;
+    position: absolute;
+    left: 3rem;
+    width: calc(100% - 6rem);  /* Mismo ancho de la caja rosa */
+    max-width: 900px;          /* Mismo tope de la caja rosa */
+    margin: 25px 0 0 3rem;     /* Separa el botón de la caja y se alinea con el margen */
+}
+
+/* 2. Estilo del botón azul ovalado "guardar" */
+.btn-guardar-fecha {
+    text-decoration: none;
+    background-color: var(--azul_princip); /* El color azul fuerte de tu paleta */
+    color: var(--offwhite);               /* Letras color claro */
+    border: 3px solid var(--azul_claro);   /* Borde azul bajito de protección */
+    border-radius: 20px;                   /* Bordes ovalados perfectos */
+    padding: 10px 45px;                    /* Lo hace largo hacia los lados */
+    font-family: 'Genos Bold', sans-serif; /* Tu fuente en negrita */
+    font-size: 28px;                       
+    font-style: italic;                    /* NUEVO: Inclina las letras como en el boceto */
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0px 4px 10px var(--shadow);
+    transition: background-color 0.2s ease;
+}
+
+/* Efecto al pasar el mouse por encima */
+.btn-guardar-fecha:hover {
+    background-color: var(--azul_medio);     /* Se oscurece un poco al pasar el cursor */
+}
+
+
+
+/*footer*/
+footer{
+    display: flex;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 1rem;
+    background-color: var(--azul_osc);
+}
+
+footer > p{
+    color:var(--offwhite);
+    flex: 1 0 auto;
+}
+footer > a{
+    color:var(--offwhite);
+    flex: 1 0 auto;
+}
+footer > a:hover{
+    color:var(--naranja_princip);
+}
+#mini_iaev_cont{
+    display: flex;
+    align-items: flex-end; 
+    justify-content: center;
+}
+#mini_iaev{
+    position: fixed;
+    bottom: 1rem;
+    right: 0;
+    width: 13rem;
+    height: 13rem;
+}
+
+@font-face {
+	font-family: 'Geologica';
+	src: url('/Animagrading/general/fuentes/Geologica-Black.ttf');
+}
+@font-face {
+	font-family: 'Genos Bold';
+	src: url('/Animagrading/general/fuentes/Genos-ExtraBoldItalic.ttf');
+}
+@font-face {
+    font-family: 'ClanPro';
+    src: url('/Animagrading/general/fuentes/clanpro-4.ttf');
+}
+@font-face {
+    font-family: 'Circular std';
+    src: url('/Animagrading/general/fuentes/circular-std-medium-500.ttf');
+}

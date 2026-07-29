@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Inicio</title>
+    <title>Fechas</title>
 
     <link rel="shortcut icon" href="/Animagrading/general/imagen/icon/favicon.ico" type="image/x-icon">
 
-    <link rel="stylesheet" href="/Animagrading/general/css/inicio.css">
+    <link rel="stylesheet" href="/Animagrading/maestros/css/fechas.css">
 </head>
 <body>
     <header>
@@ -21,21 +21,21 @@
             <div id="pest_perf" class="nav_pest">
                 <a href="perfil.html">
                     <img src="/Animagrading/general/imagen/icon/perf_azul.png" alt="ícono perfil" id="perf" class="icon_nav"
-                    onmouseover="this.src='/Animagrading/general/imagen/icon/perf_azul_h.png';" onmouseout="this.src='../imagen/icon/perf_azul.png';">
+                    onmouseover="this.src='/Animagrading/imagen/icon/perf_azul_h.png';" onmouseout="this.src='../imagen/icon/perf_azul.png';">
                     perfil
                 </a>
             </div>
             <div id="pest_calif" class="nav_pest">
                 <a  href="calificaciones.html">
                     <img src="/Animagrading/general/imagen/icon/librt_verd.png" alt="ícono libreta" class="icon_nav"
-                    onmouseover="this.src='../imagen/icon/librt_verd_h.png';" onmouseout="this.src='/Animagrading/general/imagen/icon/librt_verd.png';">
+                    onmouseover="this.src='../imagen/icon/librt_verd_h.png';" onmouseout="this.src='/Animagrading/imagen/icon/librt_verd.png';">
                     calificaciones
                 </a>
             </div>
             <div id="pest_fecha" class="nav_pest">
                 <a  href="fechas.html">
-                    <img src="/Animagrading/general/imagen/icon/cal_roj.png" alt="ícono calendario" class="icon_nav"
-                    onmouseover="this.src='../imagen/icon/cal_roj_h.png';" onmouseout="this.src='/Animagrading/general/imagen/icon/cal_roj.png';">
+                    <img src="/Animagrading//general/imagen/icon/cal_roj.png" alt="ícono calendario" class="icon_nav"
+                    onmouseover="this.src='../imagen/icon/cal_roj_h.png';" onmouseout="this.src='../imagen/icon/cal_roj.png';">
                     fechas
                 </a>
             </div>
@@ -51,7 +51,31 @@
         <div class="trama">
             <span>''</span>
         </div>
-        <h1 id="titulo">¡Hola, <span id="usrNombre"></span>!</h1>
+        <h1 id="titulo">Fechas importantes <span id="usrNombre"></span></h1>
+
+         <!-- Botón para crear una nueva fecha -->
+        <a href="agregar_fechas.html" class="btn-agregar-fecha">Agregar fecha nueva...</a>
+
+         <!-- Contenedor principal de las tarjetas de fechas -->
+        <div class="contenedor-fechas">
+            
+            <!-- Tarjeta 1 -->
+            <div class="tarjeta-mes">
+                <div class="encabezado-mes">NOMBRE MES</div>
+                <div class="cuerpo-mes">
+                    <p>Exposición con el grupo #X el día 00 a las 9:00 para la materia de Nombre materia</p>
+                </div>
+            </div>
+
+            <!-- Tarjeta 2 -->
+            <div class="tarjeta-mes">
+                <div class="encabezado-mes">NOMBRE MES</div>
+                <div class="cuerpo-mes">
+                    <p>Entrega de proyecto con grupo #X el día 00 a las 12:00 para la materia de Nombre materia</p>
+                </div>
+            </div>
+
+        </div>
 
 
 

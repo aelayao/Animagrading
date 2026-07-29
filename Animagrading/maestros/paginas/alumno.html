@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Alumno</title>
 
-    <link rel="shortcut icon" href="/Animagrading/general/imagen/icon/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="/general/imagen/icon/favicon.ico" type="image/x-icon">
 
     <link rel="stylesheet" href="/Animagrading/maestros/css/alumno.css">
 </head>
@@ -20,7 +20,7 @@
                 </a>
             </div>
             <div id="pest_perf" class="nav_pest">
-                <a href="/Animagrading/general/paginas/perfil.html">
+                <a href="/general/paginas/perfil.html">
                     <img src="/Animagrading/general/imagen/icon/perf_azul.png" alt="ícono perfil" id="perf" class="icon_nav"
                     onmouseover="this.src='/Animagrading/general/imagen/icon/perf_azul_h.png';" onmouseout="this.src='/Animagrading/general/imagen/icon/perf_azul.png';">
                     perfil
@@ -59,16 +59,16 @@
         <div class="seccion-rubrica">
             <h2 class="titulo-rubrica">Rubrica:</h2>
             <ul class="lista-evaluacion">
-                <li>Elemento a evaluar 1 - <input type="text" class="caja-nota"> /10%</li>
-                <li>Elemento a evaluar 2 - <input type="text" class="caja-nota"> /40%</li>
-                <li>Elemento a evaluar 3 - <input type="text" class="caja-nota"> /50%</li>
+                <li>Elemento a evaluar 1 - <input type="text" class="caja-nota" id="nota1"> /10%</li>
+                <li>Elemento a evaluar 2 - <input type="text" class="caja-nota" id="nota2"> /40%</li>
+                <li>Elemento a evaluar 3 - <input type="text" class="caja-nota" id="nota3"> /50%</li>
             </ul>
         </div>
 
         <!-- Bloque del "Calificacion total" -->
         <div class="seccion-total">
                 <span class="texto-total">Calificación total:</span>
-                <input type="text" class="caja-total" readonly>
+                <input type="text" class="caja-total" id="total" readonly>
             </div>
 
         <!-- Bloque de la Retroalimentacion -->
@@ -110,12 +110,15 @@
             }
         });
     }
+
     // Al dar clic en la tachita (X), cambiamos el estilo a 'none' para ocultarla
     if (botonCerrarModal) {
         botonCerrarModal.addEventListener('click', () => {
             if (modalConfirmacion) {
                 modalConfirmacion.style.display = 'none'; // se oculta la ventana
             }
+            //Al cerrar la ventana nos dirige al archivo de asignaciones
+             window.location.href = 'asignaciones.html';
         });
     }
     </script> 
