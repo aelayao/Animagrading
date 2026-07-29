@@ -1,6 +1,7 @@
 :root{
     --rojo_princip:#FF3D33;
     --rojo_medio:#FFB1AD;
+    --rojo_tarjetas:#FFD8D6;
     --rojo_claro:#FFD8D6;
     --azul_princip:#1140CC;
     --azul_medio:#9FB2EA;
@@ -10,7 +11,6 @@
     --verde_mosc:#667C15;
     --naranja_princip:#F8B615;
     --naranja_medio:#FAD372;
-    --naranja_claro:#FDF0D0;
     --azul_osc:#0F1E47;
     --offwhite:#FFFFEF;
     --shadow:rgba(15, 30, 71, 0.3);
@@ -78,7 +78,7 @@ nav div{
 #pest_perf{
     background-color: var(--azul_princip);
     display: inline;
-    z-index: 3;
+    z-index: 2;
     /*filter: drop-shadow(18px 0px 20px var(--shadow));*/
 }
 #pest_perf a{
@@ -91,11 +91,11 @@ nav div{
     color:var(--azul_claro);
 }
 
- 
+
 #pest_calif{
     background-color: var(--verde_princip);
     display: inline;
-    z-index: 4;
+    z-index: 1;
 }
 #pest_calif a{
     color:var(--verde_osc);
@@ -111,7 +111,7 @@ nav div{
 #pest_fecha{
     background-color: var(--rojo_princip);
     display: inline;
-    z-index: 1;
+    z-index: 4;
 }
 #pest_fecha a{
     color:var(--rojo_medio);
@@ -127,18 +127,20 @@ nav div{
 
 #dentro{
     margin: 3rem;
+    margin-bottom: 10%;
 }
 #titulo{
     position: absolute;
     top:21%;
     font-size: 50px;
     font-family: ClanPro;
+    color: var(--azul_osc);
 }
 #trapezio{
     position: absolute;
     top:24%;
     height: 3rem;
-    width: 36%;
+    width: 37%;
     background-color: var(--naranja_princip);
     clip-path: polygon(60px 0%, 100% 0%, calc(100% - 60px) 100%, 0% 100%);
 }
@@ -146,7 +148,7 @@ nav div{
     position: absolute;
     top:27%;
     height: 3rem;
-    width: 36%;
+    width: 37%;
     background-image: radial-gradient(
     circle at center,
     var(--naranja_princip) 0.12rem,
@@ -156,27 +158,56 @@ nav div{
     background-repeat: round;
     clip-path: polygon(60px 0%, 100% 0%, calc(100% - 60px) 100%, 0% 100%);
 }
-#btn_logout{
-    position: fixed;
-    right: 2%;
-    top: 1%;
-    width: 2.8rem;
-    height: 2.8rem;
-    border-radius: 100px;
-    padding: .5rem;
-    border: 6px solid var(--naranja_medio);
-    background-size: 45px;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-color: var(--naranja_princip);
-    background-image: url(/Animagrading/general/imagen/icon/logout.png);
-}
-#btn_logout:hover{
-    border: 6px solid var(--naranja_medio);
-    background-color: var(--naranja_claro);
-    background-image: url(/Animagrading/general/imagen/icon/logout_n.png);
-}
 /*contenido después de éste punto*/
+
+/* Contenedor que centra las tarjetas en la pantalla del alumno */
+.contenedor-fechas {
+    display: flex;
+    justify-content: center; 
+    gap: 50px;              
+    margin-top: 15rem;       /* Espacio suficiente debajo del título "Fechas importantes" */
+    width: 100%;            
+}
+
+/* 2. Tarjeta grande con el fondo rosa claro */
+.tarjeta-mes {
+    background-color: var(--rojo_tarjetas); 
+    width: 520px;             
+    height: 480px;            /* Altura fija imponente como la referencia */
+    border: 2px solid var(--rojo_princip); 
+    border-top: 10px solid var(--rojo_princip);
+    border-radius: 25px;       
+    display: flex;
+    flex-direction: column;   
+}
+
+/* 3. Nombre del mes en azul oscuro y grande */
+.encabezado-mes {
+    background-color: transparent; 
+    color: var(--azul_osc);       
+    font-family: 'Genos Bold', sans-serif;
+    font-size: 58px;      
+    padding: 5px;
+    text-align: center;
+}
+
+/* 4. El recuadro blanco del centro con texto centrado */
+.cuerpo-mes {
+    background-color: #FFEBEA; /* Blanco puro , no????*/
+    border: 2px solid var(--rojo_princip); 
+    border-radius: 15px;       
+    margin: 0 25px 35px 25px;  
+    flex-grow: 1;              
+    display: flex;
+    align-items: center;       
+    justify-content: center;   
+    padding: 20px;             
+    color: #000000;            
+    font-family: 'Circular std', sans-serif;
+    font-size: 22px;           
+    font-weight: bold;         
+    line-height: 1.5;          
+}
 
 
 
@@ -208,7 +239,7 @@ footer > a:hover{
     justify-content: center;
 }
 #mini_iaev{
-    position: absolute;
+    position: fixed;
     bottom: 1rem;
     right: 0;
     width: 13rem;
@@ -230,101 +261,4 @@ footer > a:hover{
 @font-face {
     font-family: 'Circular std';
     src: url('/Animagrading/general/fuentes/circular-std-medium-500.ttf');
-}
-#general{
-	position: absolute;
-	top:38%;
-	left:50%;
-	transform: translate(-50%, -50%);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-#general{
-
-    width:90%;
-    margin:auto;
-    margin-top:40px;
-
-}
-
-#contenedorGrupos{
-
-    display:grid;
-
-    grid-template-columns:repeat(3,450px);
-
-    justify-content:center;
-
-    gap:60px 120px;
-
-    align-items:start;
-
-}
-
-.tarjetaGrupo{
-
-    width:450px;
-
-    position:relative;
-
-}
-.btnGrupo{
-
-    width:100%;
-    height:55px;
-
-    border-radius:20px;
-
-    border:none;
-
-    background:#d9ff00;
-
-    font-size:22px;
-
-    font-weight:bold;
-
-    cursor:pointer;
-
-}
-
-.listaAlumnos{
-
-    display:none;
-
-    position:absolute;
-
-    top:70px;
-
-    left:0;
-
-    width:100%;
-
-    background:#eefbb0;
-
-    border-radius:20px;
-
-    padding:20px;
-
-    z-index:100;
-
-    box-shadow:0 5px 15px rgba(0,0,0,.2);
-
-}
-
-.listaAlumnos ol{
-
-    margin:0;
-    padding-left:25px;
-
-}
-
-.listaAlumnos li{
-
-    font-size:22px;
-
-    font-weight:bold;
-
-    margin:8px 0;
-
 }

@@ -122,40 +122,6 @@ nav div{
 #pest_fecha a:hover{
     color:var(--rojo_claro);
 }
-
-/*section*/
-
-#dentro{
-    margin: 3rem;
-}
-#titulo{
-    position: absolute;
-    top:21%;
-    font-size: 50px;
-    font-family: ClanPro;
-}
-#trapezio{
-    position: absolute;
-    top:24%;
-    height: 3rem;
-    width: 36%;
-    background-color: var(--naranja_princip);
-    clip-path: polygon(60px 0%, 100% 0%, calc(100% - 60px) 100%, 0% 100%);
-}
-.trama{
-    position: absolute;
-    top:27%;
-    height: 3rem;
-    width: 36%;
-    background-image: radial-gradient(
-    circle at center,
-    var(--naranja_princip) 0.12rem,
-    transparent 0
-    );
-    background-size: .5rem .5rem;
-    background-repeat: round;
-    clip-path: polygon(60px 0%, 100% 0%, calc(100% - 60px) 100%, 0% 100%);
-}
 #btn_logout{
     position: fixed;
     right: 2%;
@@ -176,6 +142,40 @@ nav div{
     background-color: var(--naranja_claro);
     background-image: url(/Animagrading/general/imagen/icon/logout_n.png);
 }
+/*section*/
+
+#dentro{
+    margin: 3rem;
+}
+#titulo{
+    position: absolute;
+    top:21%;
+    font-size: 50px;
+    font-family: ClanPro;
+}
+#trapezio{
+    position: absolute;
+    top:24%;
+    height: 3rem;
+    width: 26%;
+    background-color: var(--naranja_princip);
+    clip-path: polygon(60px 0%, 100% 0%, calc(100% - 60px) 100%, 0% 100%);
+}
+.trama{
+    position: absolute;
+    top:27%;
+    height: 3rem;
+    width: 26%;
+    background-image: radial-gradient(
+    circle at center,
+    var(--naranja_princip) 0.12rem,
+    transparent 0
+    );
+    background-size: .5rem .5rem;
+    background-repeat: round;
+    clip-path: polygon(60px 0%, 100% 0%, calc(100% - 60px) 100%, 0% 100%);
+}
+
 /*contenido después de éste punto*/
 
 
@@ -233,7 +233,7 @@ footer > a:hover{
 }
 #general{
 	position: absolute;
-	top:38%;
+	top:42%;
 	left:50%;
 	transform: translate(-50%, -50%);
     display: flex;
@@ -248,11 +248,11 @@ footer > a:hover{
 
 }
 
-#contenedorGrupos{
+#contenedorAsignaciones{
 
     display:grid;
 
-    grid-template-columns:repeat(3,450px);
+    grid-template-columns:repeat(2,450px);
 
     justify-content:center;
 

@@ -3,17 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Grupos y Alumnos</title>
+    <title>Fechas</title>
 
     <link rel="shortcut icon" href="/Animagrading/general/imagen/icon/favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" href="/Animagrading/maestros/css/grupos.css">
+
+    <link rel="stylesheet" href="/Animagrading/maestros/css/fechas.css">
 </head>
-
 <body>
-
-<header>
-
-    <nav>
+    <header>
+        <nav>
             <div id="pest_ini" class="nav_pest">
                 <a  href="inicio.html">
                     <img src="/Animagrading/general/imagen/icon/casa_gris.png" alt="ícono casa" class="icon_nav">
@@ -44,39 +42,57 @@
             <a id="btn_logout" title="Salir de la cuenta"></a>
         </nav>
 
-</header>
+    </header>
 
-<section id="dentro">
+    <section id="dentro">
+        <div id="trapezio">   
+            <span>''</span>
+        </div>
 
-    <div id="trapezio"></div>
+        <div class="trama">
+            <span>''</span>
+        </div>
+        <h1 id="titulo">Fechas importantes <span id="usrNombre"></span></h1>
 
-    <div class="trama"></div>
+         <!-- Botón para crear una nueva fecha -->
+        <a href="agregar_fechas.html" class="btn-agregar-fecha">Agregar fecha nueva...</a>
 
-    <h1 id="titulo">Grupos y Alumnos</h1>
+         <!-- Contenedor principal de las tarjetas de fechas -->
+        <div class="contenedor-fechas">
+            
+            <!-- Tarjeta 1 -->
+            <div class="tarjeta-mes">
+                <div class="encabezado-mes">NOMBRE MES</div>
+                <div class="cuerpo-mes">
+                    <p>Exposición con el grupo #X el día 00 a las 9:00 para la materia de Nombre materia</p>
+                </div>
+            </div>
 
-</section>
+            <!-- Tarjeta 2 -->
+            <div class="tarjeta-mes">
+                <div class="encabezado-mes">NOMBRE MES</div>
+                <div class="cuerpo-mes">
+                    <p>Entrega de proyecto con grupo #X el día 00 a las 12:00 para la materia de Nombre materia</p>
+                </div>
+            </div>
 
-<main id="general">
+        </div>
 
-    <div id="contenedorGrupos"></div>
 
-</main>
 
-<footer>
+         
 
-    <p>Tienes dudas o algún inconveniente? Contáctanos: email@gmail.com</p>
-    <a href="terminos_condic.html">Términos y condiciones</a>
-</footer>
+        
+    </section>
 
-<div id="mini_iaev_cont">
-    <a href="ayuda.html">
-        <abbr title="¡Presióname si necesitas ayuda!">
-            <img src="/Animagrading/general/imagen/mini_iaev.png" id="mini_iaev">
-        </abbr>
-    </a>
-</div>
+    <footer>
+        <p>Tienes dudas o algun inconveniente? Contactanos: email@gmail.com</p>
+        <a href="terminos_condic.html">Términos y condiciones</a>
+    </footer>
 
-<script src="../js/grupos.js" type="module"></script>
-
+    <div id="mini_iaev_cont">
+            <a href="ayuda.html"><abbr title="¡Presioname si necesitas ayuda!"><img src="/Animagrading/general/imagen/mini_iaev.png" alt="mini iaevsito" id="mini_iaev"></abbr></a>
+    </div>
+    <script src="/js/home.js" type="module"></script>
 </body>
 </html>
