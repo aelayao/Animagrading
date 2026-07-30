@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicio</title>
+
+    <link rel="shortcut icon" href="/Animagrading/general/imagen/icon/favicon.ico" type="image/x-icon">
+
+    <link rel="stylesheet" href="/Animagrading/general/css/inicio.css">
+</head>
+<body>
+    <header>
+
+        <nav>
+            <div id="pest_ini" class="nav_pest">
+                <a  href="inicio.html">
+                    <img src="/Animagrading/general/imagen/icon/casa_gris.png" alt="ícono casa" class="icon_nav">
+                    inicio
+                </a>
+            </div>
+            <div id="pest_perf" class="nav_pest">
+                <a href="/Animagrading/general/paginas/perfil.html">
+                    <img src="/Animagrading/general/imagen/icon/perf_azul.png" alt="ícono perfil" id="perf" class="icon_nav"
+                    onmouseover="this.src='/Animagrading/general/imagen/icon/perf_azul_h.png';" onmouseout="this.src='/Animagrading/general/imagen/icon/perf_azul.png';">
+                    perfil
+                </a>
+            </div>
+            <div id="pest_calif" class="nav_pest">
+                <a  href="asignaciones.html">
+                    <img src="/Animagrading/general/imagen/icon/librt_verd.png" alt="ícono libreta" class="icon_nav"
+                    onmouseover="this.src='/Animagrading/general/imagen/icon/librt_verd_h.png';" onmouseout="this.src='/Animagrading/general/imagen/icon/librt_verd.png';">
+                    asignaciones
+                </a>
+            </div>
+            <div id="pest_fecha" class="nav_pest">
+                <a  href="fechas.html">
+                    <img src="/Animagrading/general/imagen/icon/cal_roj.png" alt="ícono calendario" class="icon_nav"
+                    onmouseover="this.src='/Animagrading/general/imagen/icon/cal_roj_h.png';" onmouseout="this.src='/Animagrading/general/imagen/icon/cal_roj.png';">
+                    fechas
+                </a>
+            </div>
+            <a id="btn_logout" title="Salir de la cuenta"></a>
+        </nav>
+
+    </header>
+
+    <section id="dentro">
+        <div id="trapezio">   
+            <span>''</span>
+        </div>
+
+        <div class="trama">
+            <span>''</span>
+        </div>
+        <h1 id="titulo">¡Hola, <span id="usrNombre"></span>!</h1>
+
+        
+        <div id="contenido">
+            <h1 class="subtitulo">fechas importantes próximas:</h1>
+        
+            <div id="fechas_prox">
+                <h4>
+                    <span>00/00/2026</span>
+                    a las
+                    <span>0:00</span>
+                </h4>
+                <a href="fechas.html">más información...</a>
+            </div>
+            <h1 class="subtitulo">asignaciones a revisar:</h1>
+        
+            <div id="cont_asign">
+                <div class="asign">
+                    <h2>Proyecto final de: <br>
+                        <span>Nombre de materia</span>
+                    </h2>
+
+                    <a href="calificaciones.html" class="btn_azul">ver detalles</a>
+                </div>
+        
+                <div class="asign">
+                    <h2>Proyecto final de: <br>
+                        <span>Nombre de materia</span>
+                    </h2>
+                    <a href="calificaciones.html" class="btn_azul">ver detalles</a>
+                </div>
+        
+                <div class="asign">
+                    <h2>Proyecto final de: <br>
+                        <span>Nombre de materia</span>
+                    </h2>
+                    <a href="calificaciones.html" class="btn_azul">ver detalles</a>
+                </div>
+            </div>
+        
+        </div>
+        
+        
+    </section>
+
+    <footer>
+        <p>Tienes dudas o algun inconveniente? Contactanos: email@gmail.com</p>
+        <a href="terminos_condic.html">Términos y condiciones</a>
+    </footer>
+
+    <div id="mini_iaev_cont">
+        <a href="ayuda.html"><abbr title="¡Presioname si necesitas ayuda!"><img src="/Animagrading/general/imagen/mini_iaev.png" alt="mini iaevsito" id="mini_iaev"></abbr></a>
+    </div>
+    <script src="/Animagrading/general/js/home.js" type="module"></script>
+</body>
+</html>

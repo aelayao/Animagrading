@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agregar Fechas</title>
+
+    <link rel="shortcut icon" href="/Animagrading/general/imagen/icon/favicon.ico" type="image/x-icon">
+
+    <link rel="stylesheet" href="/maestros/css/agregar_fechas.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div id="pest_ini" class="nav_pest">
+                <a  href="inicio.html">
+                    <img src="/general/imagen/icon/casa_gris.png" alt="ícono casa" class="icon_nav">
+                    inicio
+                </a>
+            </div>
+            <div id="pest_perf" class="nav_pest">
+                <a href="/general/paginas/perfil.html">
+                    <img src="/general/imagen/icon/perf_azul.png" alt="ícono perfil" id="perf" class="icon_nav"
+                    onmouseover="this.src='/general/imagen/icon/perf_azul_h.png';" onmouseout="this.src='/Animagrading/general/imagen/icon/perf_azul.png';">
+                    perfil
+                </a>
+            </div>
+            <div id="pest_calif" class="nav_pest">
+                <a  href="asignaciones.html">
+                    <img src="/general/imagen/icon/librt_verd.png" alt="ícono libreta" class="icon_nav"
+                    onmouseover="this.src='/general/imagen/icon/librt_verd_h.png';" onmouseout="this.src='/Animagrading/general/imagen/icon/librt_verd.png';">
+                    asignaciones
+                </a>
+            </div>
+            <div id="pest_fecha" class="nav_pest">
+                <a  href="fechas.html">
+                    <img src="/general/imagen/icon/cal_roj.png" alt="ícono calendario" class="icon_nav"
+                    onmouseover="this.src='/general/imagen/icon/cal_roj_h.png';" onmouseout="this.src='/Animagrading/general/imagen/icon/cal_roj.png';">
+                    fechas
+                </a>
+            </div>
+            <a id="btn_logout" title="Salir de la cuenta"></a>
+        </nav>
+
+    </header>
+
+    <section id="dentro">
+        <div id="trapezio">   
+            <span>''</span>
+        </div>
+
+        <div class="trama">
+            <span>''</span>
+        </div>
+        <h1 id="titulo">Fechas importantes <span id="usrNombre"></span></h1>
+
+        <p class="subtitulo-formulario">Escoja los detalles de su evaluación:</p>
+
+         <!-- Caja para AGREGAR una fecha -->
+        <div class="caja-formulario-evaluacion">
+            
+            <!-- Fila 1: Fecha y Tipo (CORREGIDA) -->
+            <div class="fila-formulario">
+                <div class="grupo-campo">
+                    <label for="campo-fecha">Fecha:</label>
+                    <input type="datetime-local" id="campo-fecha" class="entrada-formulario">
+                </div>
+                <div class="grupo-campo">
+                    <label for="campo-tipo">Tipo:</label>
+                    <select id="campo-tipo" class="entrada-formulario">
+                        <option value="">Seleccione el tipo...</option>
+                        <option value="exposicion">Exposición</option>
+                        <option value="proyecto">Entrega de Proyecto</option>
+                        <option value="examen">Examen</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Fila 2: Grupo y Materia -->
+            <div class="fila-formulario">
+                <div class="grupo-campo">
+                    <label for="campo-grupo">Grupo:</label>
+                    <select id="campo-grupo" class="entrada-formulario">
+                        <option value="">Seleccione...</option>
+                        <option value="9atm">9° A TM</option>
+                        <option value="9btm">9° B TM</option>
+                    </select>
+                </div>
+                <div class="grupo-campo">
+                    <label for="campo-materia">Materia:</label>
+                    <select id="campo-materia" class="entrada-formulario">
+                        <option value="">Seleccione...</option>
+                        <option value="materia1">Materia 1</option>
+                        <option value="materia2">Materia 2</option>
+                        <option value="materia3">Materia 3</option>
+                    </select>
+                </div>
+            </div>
+
+             <!-- Elegir tarjeta a actualizar -->
+            <div class="fila-formulario">
+                <div class="grupo-campo">
+                    <label for="campo-tarjeta">¿Qué tarjeta actualizar?</label>
+                    <select id="campo-tarjeta" class="entrada-formulario">
+                        <option value="">Seleccione...</option>
+                        <option value="1">Tarjeta 1 (Izquierda)</option>
+                        <option value="2">Tarjeta 2 (Derecha)</option>
+                    </select>
+                </div>
+            </div>
+
+
+        </div>
+
+         <div class="contenedor-boton-guardar">
+            <a href="fechas.html" type="button" class="btn-guardar-fecha">guardar</a>
+            <a ></a>
+        </div>
+
+         
+
+         
+
+        
+    </section>
+
+    <footer>
+        <p>Tienes dudas o algun inconveniente? Contactanos: email@gmail.com</p>
+        <a href="terminos_condic.html">Términos y condiciones</a>
+    </footer>
+
+    <div id="mini_iaev_cont">
+            <a href="ayuda.html"><abbr title="¡Presioname si necesitas ayuda!"><img src="/general/imagen/mini_iaev.png" alt="mini iaevsito" id="mini_iaev"></abbr></a>
+    </div>
+    <script src="/maestros/js/agregar_fechas.js" type="module"></script>
+</body>
+</html>
