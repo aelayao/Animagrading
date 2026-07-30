@@ -52,7 +52,7 @@
         <div class="trama">
             <span>''</span>
         </div>
-        <h1 id="titulo">Fechas importantes <span id="usrNombre"></span></h1>
+        <h1 id="titulo">Fechas importantes</h1>
 
         <p class="subtitulo-formulario">Escoja los detalles de su evaluación:</p>
 
@@ -97,6 +97,19 @@
                 </div>
             </div>
 
+             <!-- Elegir tarjeta a actualizar -->
+            <div class="fila-formulario">
+                <div class="grupo-campo">
+                    <label for="campo-tarjeta">¿Qué tarjeta actualizar?</label>
+                    <select id="campo-tarjeta" class="entrada-formulario">
+                        <option value="">Seleccione...</option>
+                        <option value="1">Tarjeta 1 (Izquierda)</option>
+                        <option value="2">Tarjeta 2 (Derecha)</option>
+                    </select>
+                </div>
+            </div>
+
+
         </div>
 
          <div class="contenedor-boton-guardar">
@@ -119,6 +132,6 @@
     <div id="mini_iaev_cont">
             <a href="ayuda.html"><abbr title="¡Presioname si necesitas ayuda!"><img src="/Animagrading/general/imagen/mini_iaev.png" alt="mini iaevsito" id="mini_iaev"></abbr></a>
     </div>
-    <script src="/js/home.js" type="module"></script>
+    <script src="/Animagrading/maestros/js/agregar_fecha.js" type="module"></script>
 </body>
 </html>

@@ -59,7 +59,7 @@
         <div id="contenido">
             <h1 class="subtitulo">fechas importantes próximas:</h1>
         
-            <div id="fechas_prox">
+            <div class="fechas_prox" id="fechas_lleno">
                 <h4>
                     <span>00/00/2026</span>
                     a las
@@ -67,29 +67,43 @@
                 </h4>
                 <a href="fechas.html">más información...</a>
             </div>
+
+            <div class="fechas_prox" id="fechas_vacio">
+                <h4>
+                    No hay fechas asignadas o los periodos de evaluación ya han terminado.
+                </h4>
+            </div>
+
             <h1 class="subtitulo">asignaciones a revisar:</h1>
         
             <div id="cont_asign">
-                <div class="asign">
+                
+                <div class="asign" id="asign_lleno1">
                     <h2>Proyecto final de: <br>
                         <span>Nombre de materia</span>
                     </h2>
 
-                    <a href="calificaciones.html" class="btn_azul">ver detalles</a>
+                    <a href="asignaciones.html" class="btn_azul">ver detalles</a>
                 </div>
         
-                <div class="asign">
+                <div class="asign" id="asign_lleno2">
                     <h2>Proyecto final de: <br>
                         <span>Nombre de materia</span>
                     </h2>
-                    <a href="calificaciones.html" class="btn_azul">ver detalles</a>
+                    <a href="asignaciones.html" class="btn_azul">ver detalles</a>
                 </div>
         
-                <div class="asign">
+                <div class="asign" id="asign_lleno3">
                     <h2>Proyecto final de: <br>
                         <span>Nombre de materia</span>
                     </h2>
-                    <a href="calificaciones.html" class="btn_azul">ver detalles</a>
+                    <a href="asignaciones.html" class="btn_azul">ver detalles</a>
+                </div>
+
+                <div class="asign" id="asign_vacio">
+                    <h2>
+                        No hay asignaciones pendientes o los periodos de evaluación han terminado.
+                    </h2>
                 </div>
             </div>
         
