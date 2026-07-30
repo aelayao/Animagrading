@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfil de usuario</title>
+
+    <link rel="shortcut icon" href="/Animagrading/general/imagen/icon/favicon.ico">
+
+    <link rel="stylesheet" href="/Animagrading/general/css/perfil.css">
+</head>
+<body>
+    <div id="cuaderno">
+        
+        <section id="pag">
+            <img id="sombra" src="/Animagrading/general/imagen/sombra_resorte.png" alt="sombra de página">
+            <img id="resorte" src="/Animagrading/general/imagen/resorte1.png" alt="resorte de cuaderno verde">
+            
+            <div id="content">
+                <div id="content_l">
+                    <h1>Información personal</h1>
+
+                    <div id="foto" title="Editar foto de perfil">
+                        <a href="perfil_edicion.html"></a>
+                    </div>
+                    <br>
+                    <p class="datos">Nombre: <br>
+                        <input type="text" id="inpt_nombre">
+                    </p>
+                    <p class="datos">Apellido paterno: <br>
+                        <input type="text" id="inpt_apellidp">
+                    </p>
+                    
+                </div>
+                <div id="content_r">
+                    <p class="datos">Matrícula: <br>
+                        <span id="usrMatr" class="info_style"></span>
+                    </p>
+                    <p class="datos">Correo eléctronico: <br>
+                        <input type="email" id="inpt_email">
+                    </p>
+                
+                    <a href="perfil.html" class="btn_editar" id="btn_guardar">guardar cambios</a>
+
+                    
+                
+                </div>
+            </div>
+
+            <div id="mini_iaev_cont">
+                <a href="ayuda.html"><abbr title="¡Presioname si necesitas ayuda!"><img src="/Animagrading/general/imagen/mini_iaev.png" alt="mini iaevsito" id="mini_iaev"></abbr></a>
+            </div>
+            <a id="btn_volver" title="Volver al inicio" href="inicio.html"></a>
+        </section>
+    </div>
+    <script src="/Animagrading/general/js/perfil.js" type="module"></script>
+</body>
+</html>

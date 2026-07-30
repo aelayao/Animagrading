@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfil de usuario</title>
+
+    <link rel="shortcut icon" href="/Animagrading/general/imagen/icon/favicon.ico">
+
+    <link rel="stylesheet" href="/Animagrading/general/css/perfil.css">
+</head>
+<body>
+    <div id="cuaderno">
+        
+        <section id="pag">
+            <img id="sombra" src="/Animagrading/general/imagen/sombra_resorte.png" alt="sombra de página">
+            <img id="resorte" src="/Animagrading/general/imagen/resorte1.png" alt="resorte de cuaderno verde">
+            
+            <div id="content">
+                <div id="content_l">
+                    <h1>Información personal</h1>
+
+                    <div id="foto" title="Editar foto de perfil">
+                        <a href="perfil_edicion.html"><img src="" id="usrImg" alt="foto de perfil"></a>
+                        
+                    </div>
+                    <br>
+                    <p class="datos">Nombre: <br>
+                        <span id="usrNombre" class="info_style"></span><span id="usrApellido"></span>
+                    </p>
+                    <p class="datos">Matrícula: <br>
+                        <span id="usrMatr" class="info_style"></span>
+                    </p>
+                </div>
+                <div id="content_r">
+                    <p class="datos">Correo eléctronico: <br>
+                        <span id="usrCorr" class="info_style"></span>
+                    </p>
+                
+                    <a href="perfil_edicion.html" class="btn_editar">editar perfil</a>
+
+                </div>
+            </div>
+
+            <div id="mini_iaev_cont">
+                <a href="ayuda.html"><abbr title="¡Presioname si necesitas ayuda!"><img src="/Animagrading/general/imagen/mini_iaev.png" alt="mini iaevsito" id="mini_iaev"></abbr></a>
+            </div>
+            <a id="btn_volver" title="Volver al inicio" href="inicio.html"></a>
+            <a id="btn_logout" title="Salir de la cuenta"></a>
+        </section>
+    </div>
+    <script src="/Animagrading/alumnos/js/perfil.js" type="module"></script>
+</body>
+</html>

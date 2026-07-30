@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calificaciones</title>
+
+    <link rel="shortcut icon" href="/Animagrading/general/imagen/icon/favicon.ico" type="image/x-icon">
+
+    <link rel="stylesheet" href="/Animagrading/alumnos/css/calificaciones.css">
+</head>
+<body>
+    <header>
+
+        <nav>
+            <div id="pest_ini" class="nav_pest">
+                <a  href="inicio.html">
+                    <img src="/Animagrading/general/imagen/icon/casa_gris.png" alt="ícono casa" class="icon_nav">
+                    inicio
+                </a>
+            </div>
+            <div id="pest_perf" class="nav_pest">
+                <a href="/Animagrading/alumnos/paginas/perfil.html">
+                    <img src="/Animagrading/general/imagen/icon/perf_azul.png" alt="ícono perfil" id="perf" class="icon_nav"
+                    onmouseover="this.src='/Animagrading/general/imagen/icon/perf_azul_h.png';" onmouseout="this.src='/Animagrading/general/imagen/icon/perf_azul.png';">
+                    perfil
+                </a>
+            </div>
+            <div id="pest_calif" class="nav_pest">
+                <a  href="calificaciones.html">
+                    <img src="/Animagrading/general/imagen/icon/librt_verd_h.png" alt="ícono libreta" class="icon_nav"
+                    onmouseover="this.src='/Animagrading/general/imagen/icon/librt_verd.png';" onmouseout="this.src='/Animagrading/general/imagen/icon/librt_verd_h.png';">
+                    calificaciones
+                </a>
+            </div>
+            <div id="pest_fecha" class="nav_pest">
+                <a  href="fechas.html">
+                    <img src="/Animagrading/general/imagen/icon/cal_roj.png" alt="ícono calendario" class="icon_nav"
+                    onmouseover="this.src='/Animagrading/general/imagen/icon/cal_roj_h.png';" onmouseout="this.src='/Animagrading/general/imagen/icon/cal_roj.png';">
+                    fechas
+                </a>
+            </div>
+            <a id="btn_logout" title="Salir de la cuenta"></a>
+        </nav>
+
+    </header>
+
+    <section id="dentro">
+        <div id="trapezio">   
+            <span>''</span>
+        </div>
+
+        <div class="trama">
+            <span>''</span>
+        </div>
+        <h1 id="titulo">Calificaciones por proyecto</h1>
+
+        <div id="contenido">
+            <h1>No hay información por el momento.</h1>
+
+
+            <div id="dropdown">
+            <details open>
+                <summary>Materia - <span id="materia1">Nombre materia</span></summary>
+                <div class="info">
+                <h2>Rúbrica</h2>
+                <h3>Puntos obtenidos:</h3>
+                <ul>
+                    <li><span id="m1_rbc1">Elemento a evaluar</span> - Valor: <span id="m1_vlr1">#</span>%<span class="calif" id="m1_calif_vlr1">10</span><span>%</span></li>
+                    <li><span id="m1_rbc2">Elemento a evaluar</span> - Valor: <span id="m1_vlr2">#</span>%<span class="calif" id="m1_calif_vlr2">#</span><span>%</span></li>
+                    <li><span id="m1_rbc3">Elemento a evaluar</span> - Valor: <span id="m1_vlr3">#</span>%<span class="calif" id="m1_calif_vlr3">#</span><span>%</span></li>
+                </ul>
+                <h2>Calificación total del proyecto final:</h2>
+                <span class="calif" id="m1_calif_total">#</span><br><br>
+                <h2>Retroalimentación: (opcional)</h2>
+                <span id="m1_retro">fdsafsfdfsfdfdafad</span></div>
+            </details>
+            
+            <details>
+                <summary>Materia - <span id="materia2"></span></summary>
+                <div class="info">
+                <h2>Rúbrica</h2>
+                <h3>Puntos obtenidos:</h3>
+                <ul>
+                    <li><span id="m2_rbc1"></span> - Valor: <span id="m2_vlr1"></span>%......&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span id="m2_calif_vlr1"></span>%</li>
+                    <li><span id="m2_rbc2"></span> - Valor: <span id="m2_vlr2"></span>%......&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span id="m2_calif_vlr1"></span>%</li>
+                    <li><span id="m2_rbc3"></span> - Valor: <span id="m2_vlr3"></span>%......&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span id="m2_calif_vlr1"></span>%</li>
+                </ul>
+                <h2>Calificación total del proyecto final:</h2>
+                <span id="m2_calif_total"></span>
+                <h2>Retroalimentación: (opcional)</h2>
+                <span id="m2_retro"></span></div>
+            </details>
+            </div>
+        </div>
+        
+        
+    </section>
+
+    <footer>
+        <p>Tienes dudas o algun inconveniente? Contactanos: email@gmail.com</p>
+        <a href="terminos_condic.html">Términos y condiciones</a>
+    </footer>
+
+    <div id="mini_iaev_cont">
+        <a href="ayuda.html"><abbr title="¡Presioname si necesitas ayuda!"><img src="/Animagrading/general/imagen/mini_iaev.png" alt="mini iaevsito" id="mini_iaev"></abbr></a>
+    </div>
+    <script src="/Animagrading/alumnos/js/calificaciones.js" type="module"></script>
+</body>
+</html>
+</html>

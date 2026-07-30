@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registrarse</title>
+    <link rel="shortcut icon" href="/Animagrading/general/imagen/icon/favicon.ico" type="image/x-icon">
+
+    <link rel="stylesheet" href="/Animagrading/general/css/registro.css">
+</head>
+<body>
+    
+
+    <section id="general">
+        
+        <div id="recuadro">
+            <label for="inpt_nombre">Nombre:</label>
+            <input type="text" id="inpt_nombre" required>
+            <label for="inpt_nombre">Apellido paterno:</label>
+            <input type="text" id="inpt_apllidp" required>
+
+            <label for="inpt_matricula">Matrícula:</label>
+            <input type="text" required id="inpt_matricula" maxlength="8" >
+
+            <label for="slct_grupo">Grupo actual:</label>
+            <select name="grupo" id="slct_grupo" required>
+                <option value="9TMA">9°A TM</option>
+                <option value="9TMB">9°B TM</option>
+                <option value="8TV">8° TV</option>
+            </select>
+
+            <label for="inpt_email">Correo electrónico:</label>
+            <input type="email" required id="inpt_email">
+
+            <label for="inpt_pass">Contraseña:</label>
+            <input type="password" required id="inpt_pass">
+            
+            <button id="btn_regis" >registrar cuenta</button>
+        </div>
+    </section>
+    <div id="topimg"><img src="/Animagrading/general/imagen/anigrad_mid.png" alt="Animagrading logo mediano con sombra"></div>
+    <script src="/Animagrading/general/js/registro.js" type="module"></script>
+
+</body>
+</html>
