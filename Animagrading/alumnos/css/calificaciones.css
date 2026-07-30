@@ -6,6 +6,7 @@
     --azul_medio:#9FB2EA;
     --azul_claro:#CFD8F4;
     --verde_princip:#CCF92B;
+    --verde_dropdown:#EAFCAA;
     --verde_osc:#8EAE1E;
     --verde_mosc:#667C15;
     --naranja_princip:#F8B615;
@@ -123,13 +124,13 @@ nav div{
     z-index: 4;
 }
 #pest_calif a{
-    color:var(--verde_osc);
+    color:var(--verde_mosc);
 }
 #pest_calif:hover{
     z-index: 10;
 }
 #pest_calif a:hover{
-    color:var(--verde_mosc);
+    color:var(--verde_osc);
 }
 
 
@@ -189,6 +190,44 @@ nav div{
     display:flex;
     justify-content:space-between;
     flex-direction: column;
+}
+#dropdown{
+    margin-bottom: 10%;
+    font-size: 21px;
+}
+summary{
+    width: 70%;
+    text-align: center;
+    font-size: 30px;
+    padding: 1rem;
+    background-color: var(--verde_princip);
+    margin: .5rem 0;
+    border-radius: 20px;
+}
+.info{
+    width: 66%;
+    padding: 1rem 2.5rem;
+    margin: 1rem 0;
+    border-radius: 20px;
+    background-color: var(--verde_dropdown);
+}
+.info h2{
+    font-size: 30px;
+    margin-bottom: 1rem;
+}
+.info h3{
+    text-align: right;
+    font-size: 25px;
+}
+.info ul{
+    font-size: 22px;
+    list-style-position: inside;
+    margin: .5rem;
+}
+
+.calif{
+    text-align: right;
+    display: inline-block;
 }
 
 

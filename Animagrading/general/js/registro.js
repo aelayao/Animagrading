@@ -27,6 +27,7 @@ let apllidp = document.querySelector("#inpt_apllidp");
 let correo = document.querySelector("#inpt_email");
 let pass = document.querySelector("#inpt_pass");
 let registrar = document.querySelector("#btn_regis");
+let grupo = document.querySelector("#slct_grupo");
 
 const signUp = document.getElementById('submitSignUp');
 
@@ -37,7 +38,7 @@ registrar.addEventListener("click", (event) => {
   let ap = apllidp.value;
   let nom = nombre.value;
   let mat = matricula.value;
-
+  let gpo = grupo.value;
 
   // autenticación correo y contraseña/login de cuenta
   createUserWithEmailAndPassword(auth, email, password)
@@ -48,7 +49,9 @@ registrar.addEventListener("click", (event) => {
         nombre: nom,
         apellidoPaterno: ap,
         matricula: mat,
-        email: email
+        email: email,
+        grupo: gpo,
+        photoURL: "https://icons.iconarchive.com/icons/custom-icon-design/silky-line-user/128/user2-edit-icon.png"
       }
       
       const docRef=doc(db, "users", user.uid);

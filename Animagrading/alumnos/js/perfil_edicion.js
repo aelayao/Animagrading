@@ -90,10 +90,17 @@ guardar.addEventListener("click", async (event) => {
       await verifyBeforeUpdateEmail(user, nuevoEml);
       alert("Se ha enviado un link de verificación a tu correo electronico, por favor revisalo para realizar el cambio.");
     }*/
-   if(nuevaFoto){
-    fotoUrl.src = nuevaFoto;
+   if(nuevoNom == "" && nuevaFoto == "" && nuevoAp == "" && nuevoEml == ""){
+    alert("No se ha ingresado información, regresando a la página anterior...");
+
+   /*setTimeout(() =>{
+      window.location.href = "perfil.html";
+    }, 1000);*/
+    
    }
-    alert("Cambios al perfil guardados con éxito!")
+   else{
+    alert("Cambios al perfil guardados con éxito!");
+   }
     window.location.href = "perfil.html";
   }
   catch (error){

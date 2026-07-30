@@ -33,6 +33,7 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
+	
 }
 #recuadro{
 	position: relative;
@@ -41,10 +42,11 @@ body{
 	/*grid-template-rows:2fr;*/
 	place-items: center;
 	width: 42rem;
-	height: 32rem;
+	height: 35rem;
 	border-radius: 65px;
 	background: var(--offwhite);
 	filter: drop-shadow(0px 15px 4px var(--shadow));
+	margin: 10% 0;
 }
 #topimg{
 	position: absolute;
@@ -65,15 +67,16 @@ label{
 	text-indent: left;
 	margin: 5px;
 }
-input{
+input, #slct_grupo{
 	font-size: 20px;
 	border-radius: 15px;
 	padding: .1rem .3rem;
-	height: 40px;
+	height: 35px;
 	width: 400px;
 	border: 2px solid var(--gris_inpt_brdr);
 	background-color: var(--gris_inpt);
 }
+
 #btn_regis{
 	font-size: 40px;
 	margin: 1rem;
