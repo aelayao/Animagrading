@@ -55,7 +55,7 @@ onAuthStateChanged(auth, (user) =>{
 	else
 	{
     console.log("Deslog")
-    window.location.href = "index.html";
+    window.location.href = "/Animagrading/index.html";
   }
 })
 

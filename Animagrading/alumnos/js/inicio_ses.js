@@ -43,20 +43,18 @@ ingresar.addEventListener("click", ()=>{
     const userDoc = await getDoc(docRef);
     if(userDoc.exists()){
       const userData= userDoc.data();
-      console.log("eso dijo ella")
+
       //si datos de usuario coincide con matricula, llevar a pag. de inicio
       if (userData.matricula === matricula.value.trim()){
         localStorage.setItem('loggedInUserId', user.uid);
         window.location.href = "inicio.html";
       }
       else{
-        await signOut(auth);
         alert('Correo, contraseña o matrícula incorrecto.');
       }
 
     }
     else{
-      await signOut(auth);
       alert('La cuenta no existe o los datos ingresados son incompletos.');
     }
     
@@ -76,14 +74,3 @@ ingresar.addEventListener("click", ()=>{
   
 })
 
-/* onAuthStateChanged(auth, (user) =>{
-	if (user) {
-		const uid = user.uid;
-		//mostrar graficamente
-	}
-	else
-	{
-    console.log("Deslog")
-    window.location.href = "index.html";
-  }
-}) */
