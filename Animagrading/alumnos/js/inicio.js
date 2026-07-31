@@ -37,10 +37,10 @@ let asign_info = true; //si no hay asignaciones a revisar...
 obsAuth(async (user) => {
 
     //no necesita volver a autenticar
-	  const uid = user.uid;
+	const uid = user.uid;
     const docRef = doc(db, "users", uid);
     getDoc(docRef)
-    /*
+    //mostrar graficamente el nombre:
     try{
         const docSnap = await getDoc(docRef);
 
@@ -57,10 +57,35 @@ obsAuth(async (user) => {
     catch(error){
       document.getElementById('usrNombre').innerText= 'Nombre';
       console.log("Error al obtener la información.");
-    }*/
+    }
+
+        //revisar si hay información de fechas (preeliminar)
+    if (fechas_info == false){
+    fechas_vacio.style.display = 'flex';
+    fechas_lleno.style.display = 'none';
+    }
+    else{
+    fechas_vacio.style.display = 'none';
+    fechas_lleno.style.display = 'block';
+    }
+
+    //revisar si hay información de asignaciones (preeliminar)
+    if (fechas_info == false){
+    asign_vacio.style.display = 'flex';
+    asign_lleno1.style.display = 'none';
+    asign_lleno2.style.display = 'none';
+    asign_lleno3.style.display = 'none';
+    }
+    else{ //later check individually if there is more info
+    asign_vacio.style.display = 'none';
+    asign_lleno1.style.display = 'grid';
+    asign_lleno2.style.display = 'grid';
+    asign_lleno3.style.display = 'grid';
+    }
 	
 	
 })
+
 
 //log out
 btnLogout();

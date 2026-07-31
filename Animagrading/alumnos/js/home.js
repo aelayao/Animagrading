@@ -57,8 +57,7 @@ else{ //later check individually if there is more info
 }
 
 onAuthStateChanged(auth, (user) =>{
-  const loggedInUserId=localStorage.getItem('loggedInUserId');
-	if (loggedInUserId) {
+	if (user) {
 		const uid = user.uid;
 		
     const docRef = doc(db, "users", uid);

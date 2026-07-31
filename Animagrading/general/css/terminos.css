@@ -137,6 +137,63 @@ footer > a:hover{
     align-items: flex-end; 
     justify-content: center;
 }
+#burb_img{
+    position: fixed;
+    bottom: 1rem;
+    right: 0;
+    width: 13rem;
+    height: 13rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+#burbuja{
+    visibility: hidden;
+    opacity: 0;
+
+    text-decoration: none;
+    color: var(--tooltip_b);
+    background-color: var(--tooltip_w);
+    border: 3px solid var(--tooltip_b);
+    border-radius: 15px;
+    position: absolute;
+    bottom: 100%; 
+    right: 10%;
+    white-space: nowrap;
+    font-size: 22px;
+    padding: .2rem;
+    padding-top: .7rem;
+
+    transition: opacity 0.2s ease-in-out;
+    pointer-events: none;
+}
+#burbuja::after{
+    content: '';
+    position: absolute;
+    bottom: -12px;
+    right: 25px;
+    border-width: 10px 10px 0;
+    border-style: solid;
+    border-color: #FFFFEF transparent;
+    display: block;
+    width: 0;
+}
+#burbuja::before{
+    content: '';
+    position: absolute;
+    bottom: -14px; 
+    right: 22.5px;  
+    border-width: 12px 12px 0;
+    border-style: solid;
+    border-color: #0f1e47 transparent;
+    display: block;
+    width: 0;
+}
+
+#burb_img:hover #burbuja{
+    visibility: visible;
+    opacity: 1;
+}
 #mini_iaev{
     position: fixed;
     bottom: 1rem;
