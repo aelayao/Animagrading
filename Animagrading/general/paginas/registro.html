@@ -20,7 +20,7 @@
             <input type="text" id="inpt_apllidp" required>
 
             <label for="inpt_matricula">Matrícula:</label>
-            <input type="text" required id="inpt_matricula" maxlength="8" >
+            <input type="text" required id="inpt_matricula" minlength="8" maxlength="8" inputmode="numeric" oninput="this.value = this.value.replace(/[^0-9]/g, '');">
 
             <label for="slct_grupo">Grupo actual:</label>
             <select name="grupo" id="slct_grupo" required>
@@ -32,8 +32,8 @@
             <label for="inpt_email">Correo electrónico:</label>
             <input type="email" required id="inpt_email">
 
-            <label for="inpt_pass">Contraseña:</label>
-            <input type="password" required id="inpt_pass">
+            <label for="inpt_pass">Contraseña (mínimo 7 caracteres):</label>
+            <input type="password" required id="inpt_pass" minlength="7">
             
             <button id="btn_regis" >registrar cuenta</button>
         </div>

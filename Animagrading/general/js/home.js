@@ -1,7 +1,9 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/12.15.0/firebase-app.js";
 import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.15.0/firebase-analytics.js";
-import { getAuth, onAuthStateChanged, signOut} from "https://www.gstatic.com/firebasejs/12.15.0/firebase-auth.js";
 import { getFirestore, getDoc, doc} from "https://www.gstatic.com/firebasejs/12.15.0/firebase-firestore.js";
+
+import { obsAuth } from "/Animagrading/alumnos/js/obsrvr.js";
+import { btnLogout } from "/Animagrading/alumnos/js/obsrvr.js";
 
 //identificadores de firebase
 const firebaseConfig = {
@@ -17,7 +19,6 @@ const firebaseConfig = {
 //Inicializar firebase
 const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
-const auth = getAuth();
 const db = getFirestore(app); //inicializa cloud firestore
 
 //variables
@@ -32,66 +33,59 @@ let asign_lleno2= document.querySelector('#asign_lleno2');
 let asign_lleno3= document.querySelector('#asign_lleno3');
 let asign_info = true; //si no hay asignaciones a revisar...
 
-//revisar si hay información de fechas (preeliminar)
-if (fechas_info == false){
-  fechas_vacio.style.display = 'flex';
-  fechas_lleno.style.display = 'none';
-}
-else{
-  fechas_vacio.style.display = 'none';
-  fechas_lleno.style.display = 'block';
-}
 
-//revisar si hay información de asignaciones (preeliminar)
-if (fechas_info == false){
-  asign_vacio.style.display = 'flex';
-  asign_lleno1.style.display = 'none';
-  asign_lleno2.style.display = 'none';
-  asign_lleno3.style.display = 'none';
-}
-else{ //later check individually if there is more info
-  asign_vacio.style.display = 'none';
-  asign_lleno1.style.display = 'grid';
-  asign_lleno2.style.display = 'grid';
-  asign_lleno3.style.display = 'grid';
-}
+obsAuth(async (user) => {
 
-
-onAuthStateChanged(auth, (user) =>{
-	if (user) {
-		const uid = user.uid;
-		
+    //no necesita volver a autenticar
+	const uid = user.uid;
     const docRef = doc(db, "users", uid);
     getDoc(docRef)
     //mostrar graficamente el nombre:
-    .then(async (docSnap)=>{
+    try{
+        const docSnap = await getDoc(docRef);
+
       if (docSnap.exists()){
         const userData= docSnap.data();
+        //get element by id es más rápido(?) 
         document.getElementById('usrNombre').innerText=userData.nombre;
       }
       else
       {
-        console.log("pero que ha pasao");
+        document.getElementById('usrNombre').innerText= 'Nombre';
       }
-    })
-    .catch((error)=>{
+    }
+    catch(error){
+      document.getElementById('usrNombre').innerText= 'Nombre';
       console.log("Error al obtener la información.");
-    })
-	}
-	else
-	{
-    console.log("Logging out...")
-    window.location.href = "../index.html";
-  }
+    }
+
+        //revisar si hay información de fechas (preeliminar)
+    if (fechas_info == false){
+    fechas_vacio.style.display = 'flex';
+    fechas_lleno.style.display = 'none';
+    }
+    else{
+    fechas_vacio.style.display = 'none';
+    fechas_lleno.style.display = 'block';
+    }
+
+    //revisar si hay información de asignaciones (preeliminar)
+    if (fechas_info == false){
+    asign_vacio.style.display = 'flex';
+    asign_lleno1.style.display = 'none';
+    asign_lleno2.style.display = 'none';
+    asign_lleno3.style.display = 'none';
+    }
+    else{ //later check individually if there is more info
+    asign_vacio.style.display = 'none';
+    asign_lleno1.style.display = 'grid';
+    asign_lleno2.style.display = 'grid';
+    asign_lleno3.style.display = 'grid';
+    }
+	
+	
 })
+
 
 //log out
-logout.addEventListener("click", (event) => {
-  signOut(auth).then(() => {
-    window.location.href = "/Animagrading/index.html";
-  }).catch((error) => {
-    console.log(error);
-    console.log("Problemas al cerrar sesión");
-  });
-})
-
+btnLogout();

@@ -25,7 +25,7 @@ let matricula = document.querySelector("#inpt_matricula");
 let correo = document.querySelector("#inpt_email");
 let pass = document.querySelector("#inpt_pass");
 let ingresar = document.querySelector("#btn_ingresar");
-let matr_maestro = "abcdefgh";
+let nomletr = /^([a-zA-ZáíúéóüñÁÍÚÉÓÜÑ])(?=.*\d)+$/;
 
 ingresar.addEventListener("click", ()=>{
   
@@ -44,8 +44,8 @@ ingresar.addEventListener("click", ()=>{
       //si datos de usuario coincide con matricula, llevar a pag. de inicio
       if (userData.matricula === matricula.value.trim()){
         localStorage.setItem('loggedInUserId', user.uid);
-        if(userData.matricula == matr_maestro){
-          console.log("entramos papus")
+
+        if(userData.maestro === true || userData.maestro === "true"){
           window.location.href = "/Animagrading/maestros/paginas/inicio.html";
         }
         else{
