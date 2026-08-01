@@ -33,7 +33,6 @@ obsAuth(async (user) => {
     .then(async (docSnap)=>{
       if (docSnap.exists()){
         const userData= docSnap.data();
-        console.log("Firestore User Data:", userData);
 
         document.getElementById('usrNombre').innerText=userData.nombre;
         document.getElementById('usrApellido').innerText=userData.apellidoPaterno;

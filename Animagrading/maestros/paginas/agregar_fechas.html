@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,33 +10,37 @@
 
     <link rel="stylesheet" href="/Animagrading/maestros/css/agregar_fechas.css">
 </head>
+
 <body>
     <header>
         <nav>
             <div id="pest_ini" class="nav_pest">
-                <a  href="inicio.html">
+                <a href="inicio.html">
                     <img src="/Animagrading/general/imagen/icon/casa_gris.png" alt="ícono casa" class="icon_nav">
                     inicio
                 </a>
             </div>
             <div id="pest_perf" class="nav_pest">
                 <a href="/Animagrading/general/paginas/perfil.html">
-                    <img src="/Animagrading/general/imagen/icon/perf_azul.png" alt="ícono perfil" id="perf" class="icon_nav"
-                    onmouseover="this.src='/Animagrading/general/imagen/icon/perf_azul_h.png';" onmouseout="this.src='/Animagrading/general/imagen/icon/perf_azul.png';">
+                    <img src="/Animagrading/general/imagen/icon/perf_azul.png" alt="ícono perfil" id="perf"
+                        class="icon_nav" onmouseover="this.src='/Animagrading/general/imagen/icon/perf_azul_h.png';"
+                        onmouseout="this.src='/Animagrading/general/imagen/icon/perf_azul.png';">
                     perfil
                 </a>
             </div>
             <div id="pest_calif" class="nav_pest">
-                <a  href="asignaciones.html">
+                <a href="asignaciones.html">
                     <img src="/Animagrading/general/imagen/icon/librt_verd.png" alt="ícono libreta" class="icon_nav"
-                    onmouseover="this.src='/Animagrading/general/imagen/icon/librt_verd_h.png';" onmouseout="this.src='/Animagrading/general/imagen/icon/librt_verd.png';">
+                        onmouseover="this.src='/Animagrading/general/imagen/icon/librt_verd_h.png';"
+                        onmouseout="this.src='/Animagrading/general/imagen/icon/librt_verd.png';">
                     asignaciones
                 </a>
             </div>
             <div id="pest_fecha" class="nav_pest">
-                <a  href="fechas.html">
+                <a href="fechas.html">
                     <img src="/Animagrading/general/imagen/icon/cal_roj.png" alt="ícono calendario" class="icon_nav"
-                    onmouseover="this.src='/Animagrading/general/imagen/icon/cal_roj_h.png';" onmouseout="this.src='/Animagrading/general/imagen/icon/cal_roj.png';">
+                        onmouseover="this.src='/Animagrading/general/imagen/icon/cal_roj_h.png';"
+                        onmouseout="this.src='/Animagrading/general/imagen/icon/cal_roj.png';">
                     fechas
                 </a>
             </div>
@@ -45,7 +50,7 @@
     </header>
 
     <section id="dentro">
-        <div id="trapezio">   
+        <div id="trapezio">
             <span>''</span>
         </div>
 
@@ -56,21 +61,20 @@
 
         <p class="subtitulo-formulario">Escoja los detalles de su evaluación:</p>
 
-         <!-- Caja para AGREGAR una fecha -->
+        <!-- Caja para AGREGAR una fecha -->
         <div class="caja-formulario-evaluacion">
-            
+
             <!-- Fila 1: Fecha y Tipo (CORREGIDA) -->
             <div class="fila-formulario">
                 <div class="grupo-campo">
-                    <label for="campo-fecha">Fecha:</label>
+                    <label for="campo-fecha">Fecha y hora:</label>
                     <input type="datetime-local" id="campo-fecha" class="entrada-formulario">
                 </div>
                 <div class="grupo-campo">
-                    <label for="campo-tipo">Tipo:</label>
+                    <label for="campo-tipo">Tipo de entrega:</label>
                     <select id="campo-tipo" class="entrada-formulario">
-                        <option value="">Seleccione el tipo...</option>
+                        <option value="proyecto">Proyecto</option>
                         <option value="exposicion">Exposición</option>
-                        <option value="proyecto">Entrega de Proyecto</option>
                         <option value="examen">Examen</option>
                     </select>
                 </div>
@@ -81,23 +85,22 @@
                 <div class="grupo-campo">
                     <label for="campo-grupo">Grupo:</label>
                     <select id="campo-grupo" class="entrada-formulario">
-                        <option value="">Seleccione...</option>
-                        <option value="9atm">9° A TM</option>
-                        <option value="9btm">9° B TM</option>
+                        <option value="9TMA">9°A TM</option>
+                        <option value="9TMB">9°B TM</option>
+                        <option value="8TV">8° TV</option>
                     </select>
                 </div>
                 <div class="grupo-campo">
                     <label for="campo-materia">Materia:</label>
                     <select id="campo-materia" class="entrada-formulario">
-                        <option value="">Seleccione...</option>
-                        <option value="materia1">Materia 1</option>
-                        <option value="materia2">Materia 2</option>
-                        <option value="materia3">Materia 3</option>
+                        <option value="PRA">Producción Audiovisual</option>
+                        <option value="ANA">Animación Avanzada</option>
+                        <option value="SIM">Simulación 3D</option>
                     </select>
                 </div>
             </div>
 
-             <!-- Elegir tarjeta a actualizar -->
+            <!-- Elegir tarjeta a actualizar 
             <div class="fila-formulario">
                 <div class="grupo-campo">
                     <label for="campo-tarjeta">¿Qué tarjeta actualizar?</label>
@@ -107,21 +110,20 @@
                         <option value="2">Tarjeta 2 (Derecha)</option>
                     </select>
                 </div>
-            </div>
+            </div>-->
 
 
         </div>
+        <div class="contenedor-boton-guardar">
+            <a class="btn-guardar-fecha" id="btn_guardar">guardar</a>
 
-         <div class="contenedor-boton-guardar">
-            <a href="fechas.html" type="button" class="btn-guardar-fecha">guardar</a>
-            <a ></a>
         </div>
 
-         
 
-         
 
-        
+
+
+
     </section>
 
     <footer>
@@ -130,8 +132,10 @@
     </footer>
 
     <div id="mini_iaev_cont">
-            <a href="ayuda.html"><abbr title="¡Presioname si necesitas ayuda!"><img src="/Animagrading/general/imagen/mini_iaev.png" alt="mini iaevsito" id="mini_iaev"></abbr></a>
+        <a href="ayuda.html"><abbr title="¡Presioname si necesitas ayuda!"><img
+                    src="/Animagrading/general/imagen/mini_iaev.png" alt="mini iaevsito" id="mini_iaev"></abbr></a>
     </div>
     <script src="/Animagrading/maestros/js/agregar_fecha.js" type="module"></script>
 </body>
+
 </html>

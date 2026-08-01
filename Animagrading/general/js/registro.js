@@ -1,7 +1,7 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/12.15.0/firebase-app.js";
 import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.15.0/firebase-analytics.js";
 import { getAuth, createUserWithEmailAndPassword, validatePassword } from "https://www.gstatic.com/firebasejs/12.15.0/firebase-auth.js";
-import { getFirestore, setDoc, collection, query, where, getDoc, doc } from "https://www.gstatic.com/firebasejs/12.15.0/firebase-firestore.js";
+import { getFirestore, setDoc, collection, query, where, getDoc, getDocs, doc } from "https://www.gstatic.com/firebasejs/12.15.0/firebase-firestore.js";
 
 //identificadores de firebase
 const firebaseConfig = {
@@ -35,7 +35,7 @@ let passlimit = /^(?=.*[a-z])(?=.*\d)(?=.*[@.#$!%*?&]).{7,20}$/;
 let nomletr = /^[a-zA-ZáíúéóüñÁÍÚÉÓÜÑ]+$/;
 
 
-registrar.addEventListener("click", (event) => {
+registrar.addEventListener("click", async (event) => {
 
   let email = correo.value;
   const password = pass.value;
@@ -73,61 +73,54 @@ registrar.addEventListener("click", (event) => {
     return;
   }
 
-  /*try{
+  try {
     //revisar si en usuarios hay alguien ya con una matrícula como la ingresada, aqui docRef no ocupa el uid (pq no hay nadie ingresado¿)
-  //no doc pq doc ocupa el uid!!
-  const notdocRef = collection(db, "users");
-  const matigl = query(notdocRef, where("matricula", "==", mat));
-  const resultao = await getDocs(matigl);
+    //no doc pq doc ocupa el uid!!
+    const notdocRef = collection(db, "users");
+    const matigl = query(notdocRef, where("matricula", "==", mat));
+    const resultao = await getDocs(matigl);
 
-  if (!resultao.empty) {
-    alert("Esta matrícula ya está registrada, ingresa una diferente. Si crees que ésto es un error, contactate con Animagrading.");
-    return;
-  }
-  }
-  catch{
-    console.log("auxilio")
-  }*/
+    if (!resultao.empty) {
+      alert("Esta matrícula ya está registrada, ingresa una diferente. Si cree que ésto es un error, contactese con Animagrading.");
+      return;
+    }
 
-  // autenticación correo y contraseña/login de cuenta
-  createUserWithEmailAndPassword(auth, email, password)
+    // autenticación correo y contraseña/login de cuenta
+    const userCredential = await createUserWithEmailAndPassword(auth, email, password);
     //registro exitoso https://www.youtube.com/watch?v=_Xczf06n6x0
-    .then((userCredential) => {
-      const user = userCredential.user;
-      const userData = {
-        nombre: nom,
-        apellidoPaterno: ap,
-        matricula: mat,
-        email: email,
-        grupo: gpo,
-        maestro: false,
-        photoURL: "https://icons.iconarchive.com/icons/custom-icon-design/silky-line-user/128/user2-edit-icon.png"
-      }
 
-      const docRef = doc(db, "users", user.uid);
-      setDoc(docRef, userData)
-        .then(() => {
-          window.location.href = "/Animagrading/alumnos/paginas/inicio.html";
+    const user = userCredential.user;
+    const userData = {
+      nombre: nom,
+      apellidoPaterno: ap,
+      matricula: mat,
+      email: email,
+      grupo: gpo,
+      maestro: false,
+      photoURL: "https://icons.iconarchive.com/icons/custom-icon-design/silky-line-user/128/user2-edit-icon.png"
+    }
 
-        })
-        .catch((error) => {
-          console.error("error en document", error);
-        })
-
+    const docRef = doc(db, "users", user.uid);
+    await setDoc(docRef, userData);
+    window.location.href = "/Animagrading/alumnos/paginas/inicio.html";
+    /*.then(() => {
+    })
+    .catch((error) => {
+      console.error("error en document", error);
     })
     //error de registro
-    .catch((error) => {
-      alert("Ha habido un error, por favor inténtelo de nuevo.");
+    .catch((error) => {})*/
+  }
+  catch (error) {
+    console.log("auxilio", error)
+    const errorCode = error.code;
+    const errorMessage = error.message;
 
-      const errorCode = error.code;
-      const errorMessage = error.message;
-
-      if (errorCode == 'auth/email-already-in-use') {
-        alert('Correo ya registrado!');
-      }
-      else {
-        alert('No se pudo crear usuario. Inténtelo de nuevo más tarde');
-      }
-    })
-
+    if (errorCode == 'auth/email-already-in-use') {
+      alert('Correo ya registrado. Por favor ingrese uno diferente. Si cree que ésto es un error, contactese con Animagrading.');
+    }
+    else {
+      alert('No se pudo crear usuario. Inténtelo de nuevo más tarde');
+    }
+  }
 })
