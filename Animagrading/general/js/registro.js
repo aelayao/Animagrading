@@ -38,7 +38,7 @@ let nomletr = /^[a-zA-ZáíúéóüñÁÍÚÉÓÜÑ]+$/;
 registrar.addEventListener("click", async (event) => {
 
   let email = correo.value;
-  const password = pass.value;
+  let password = pass.value;
   let ap = apllidp.value;
   let nom = nombre.value;
   let mat = matricula.value;
@@ -80,6 +80,7 @@ registrar.addEventListener("click", async (event) => {
     const matigl = query(notdocRef, where("matricula", "==", mat));
     const resultao = await getDocs(matigl);
 
+    //si resultado no está vacio, entonces encontró la matrícula en la colección
     if (!resultao.empty) {
       alert("Esta matrícula ya está registrada, ingresa una diferente. Si cree que ésto es un error, contactese con Animagrading.");
       return;

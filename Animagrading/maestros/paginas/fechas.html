@@ -7,7 +7,7 @@
 
     <link rel="shortcut icon" href="/Animagrading/general/imagen/icon/favicon.ico" type="image/x-icon">
 
-    <link rel="stylesheet" href="/Animagrading/maestros/css/fechas.css">
+    <link rel="stylesheet" href="/Animagrading/alumnos/css/fechas.css">
 </head>
 <body>
     <header>
@@ -34,8 +34,8 @@
             </div>
             <div id="pest_fecha" class="nav_pest">
                 <a  href="fechas.html">
-                    <img src="/Animagrading/general/imagen/icon/cal_roj.png" alt="ícono calendario" class="icon_nav"
-                    onmouseover="this.src='/Animagrading/general/imagen/icon/cal_roj_h.png';" onmouseout="this.src='/Animagrading/general/imagen/icon/cal_roj.png';">
+                    <img src="/Animagrading/general/imagen/icon/cal_roj_h.png" alt="ícono calendario" class="icon_nav"
+                    onmouseover="this.src='/Animagrading/general/imagen/icon/cal_roj.png';" onmouseout="this.src='/Animagrading/general/imagen/icon/cal_roj_h.png';">
                     fechas
                 </a>
             </div>
@@ -58,31 +58,12 @@
         <a href="agregar_fechas.html" class="btn-agregar-fecha">Agregar fecha nueva...</a>
 
          <!-- Contenedor principal de las tarjetas de fechas -->
-        <div class="contenedor-fechas">
+        <div class="contenedor-fechas" id="contenedor-fechas">
             
-            <!-- Tarjeta 1 -->
-            <div class="tarjeta-mes"  >
-                <div id="mes-tarjeta-1" class="encabezado-mes">NOMBRE MES</div>
-                <div class="cuerpo-mes">
-                    <p id="texto-tarjeta-1">Exposición con el grupo #X el día 00 a las 9:00 para la materia de Nombre materia</p>
-                </div>
-            </div>
-
-            <!-- Tarjeta 2 -->
-            <div class="tarjeta-mes">
-                <div id="mes-tarjeta-1" class="encabezado-mes">NOMBRE MES</div>
-                <div class="cuerpo-mes">
-                    <p id="texto-tarjeta-2">Entrega de proyecto con grupo #X el día 00 a las 12:00 para la materia de Nombre materia</p>
-                </div>
-            </div>
+            <!-- integrar tarjetas con js -->
 
         </div>
-
-
-
-         
-
-        
+        <h2 id="txt_nada">No hay fechas establecidas aún</h2>
     </section>
 
     <footer>
@@ -91,7 +72,10 @@
     </footer>
 
     <div id="mini_iaev_cont">
-            <a href="ayuda.html"><abbr title="¡Presioname si necesitas ayuda!"><img src="/Animagrading/general/imagen/mini_iaev.png" alt="mini iaevsito" id="mini_iaev"></abbr></a>
+        <a href="ayuda.html" id="burb_img">
+            <span id="burbuja">¡Presioname si necesitas ayuda!</span>
+            <img src="/Animagrading/general/imagen/mini_iaev.png" alt="mini iaevsito" id="mini_iaev">
+        </a>
     </div>
     <script src="../js/fechas.js" type="module"></script>
 </body>

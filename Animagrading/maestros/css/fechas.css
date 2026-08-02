@@ -114,13 +114,13 @@ nav div{
     z-index: 4;
 }
 #pest_fecha a{
-    color:var(--rojo_medio);
+    color:var(--rojo_claro);
 }
 #pest_fecha:hover{
     z-index: 10;
 }
 #pest_fecha a:hover{
-    color:var(--rojo_claro);
+    color:var(--rojo_medio);
 }
 #btn_logout{
     position: fixed;
@@ -234,10 +234,8 @@ nav div{
 /* Botón "Agregar fecha nueva..." */
 .btn-agregar-fecha {
     display: inline-block;
-    margin-top: 15rem;           /* Lo empuja hacia abajo del título */
-    margin-bottom: 1rem;        /* Separa el botón de las tarjetas de abajo */
+    margin-top: 15rem;
     padding: 8px 25px;
-    background-color: #ffffff;  /* Fondo blanco limpio */
     color: var(--azul_osc);     /* Letras oscuras */
     border: 3px solid var(--naranja_princip); /* Borde suave azulado */
     border-radius: 15px;        /* Bordes redondeados ovalados */
@@ -279,6 +277,63 @@ footer > a:hover{
     display: flex;
     align-items: flex-end; 
     justify-content: center;
+}
+#burb_img{
+    position: fixed;
+    bottom: 1rem;
+    right: 0;
+    width: 13rem;
+    height: 13rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+#burbuja{
+    visibility: hidden;
+    opacity: 0;
+
+    text-decoration: none;
+    color: var(--tooltip_b);
+    background-color: var(--tooltip_w);
+    border: 3px solid var(--tooltip_b);
+    border-radius: 15px;
+    position: absolute;
+    bottom: 100%; 
+    right: 10%;
+    white-space: nowrap;
+    font-size: 22px;
+    padding: .2rem;
+    padding-top: .7rem;
+
+    transition: opacity 0.2s ease-in-out;
+    pointer-events: none;
+}
+#burbuja::after{
+    content: '';
+    position: absolute;
+    bottom: -12px;
+    right: 25px;
+    border-width: 10px 10px 0;
+    border-style: solid;
+    border-color: #FFFFEF transparent;
+    display: block;
+    width: 0;
+}
+#burbuja::before{
+    content: '';
+    position: absolute;
+    bottom: -14px; 
+    right: 22.5px;  
+    border-width: 12px 12px 0;
+    border-style: solid;
+    border-color: #0f1e47 transparent;
+    display: block;
+    width: 0;
+}
+
+#burb_img:hover #burbuja{
+    visibility: visible;
+    opacity: 1;
 }
 #mini_iaev{
     position: fixed;

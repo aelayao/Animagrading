@@ -8,7 +8,7 @@
 
     <link rel="shortcut icon" href="/Animagrading/general/imagen/icon/favicon.ico" type="image/x-icon">
 
-    <link rel="stylesheet" href="/Animagrading/maestros/css/agregar_fechas.css">
+    <link rel="stylesheet" href="/Animagrading/alumnos/css/fechas.css">
 </head>
 
 <body>
@@ -38,9 +38,9 @@
             </div>
             <div id="pest_fecha" class="nav_pest">
                 <a href="fechas.html">
-                    <img src="/Animagrading/general/imagen/icon/cal_roj.png" alt="ícono calendario" class="icon_nav"
-                        onmouseover="this.src='/Animagrading/general/imagen/icon/cal_roj_h.png';"
-                        onmouseout="this.src='/Animagrading/general/imagen/icon/cal_roj.png';">
+                    <img src="/Animagrading/general/imagen/icon/cal_roj_h.png" alt="ícono calendario" class="icon_nav"
+                        onmouseover="this.src='/Animagrading/general/imagen/icon/cal_roj.png';"
+                        onmouseout="this.src='/Animagrading/general/imagen/icon/cal_roj_h.png';">
                     fechas
                 </a>
             </div>
@@ -62,6 +62,7 @@
         <p class="subtitulo-formulario">Escoja los detalles de su evaluación:</p>
 
         <!-- Caja para AGREGAR una fecha -->
+        
         <div class="caja-formulario-evaluacion">
 
             <!-- Fila 1: Fecha y Tipo (CORREGIDA) -->
@@ -73,9 +74,9 @@
                 <div class="grupo-campo">
                     <label for="campo-tipo">Tipo de entrega:</label>
                     <select id="campo-tipo" class="entrada-formulario">
-                        <option value="proyecto">Proyecto</option>
-                        <option value="exposicion">Exposición</option>
-                        <option value="examen">Examen</option>
+                        <option value="Proyecto">Proyecto</option>
+                        <option value="Exposición">Exposición</option>
+                        <option value="Examen">Examen</option>
                     </select>
                 </div>
             </div>
@@ -100,29 +101,13 @@
                 </div>
             </div>
 
-            <!-- Elegir tarjeta a actualizar 
-            <div class="fila-formulario">
-                <div class="grupo-campo">
-                    <label for="campo-tarjeta">¿Qué tarjeta actualizar?</label>
-                    <select id="campo-tarjeta" class="entrada-formulario">
-                        <option value="">Seleccione...</option>
-                        <option value="1">Tarjeta 1 (Izquierda)</option>
-                        <option value="2">Tarjeta 2 (Derecha)</option>
-                    </select>
-                </div>
-            </div>-->
-
-
+            
         </div>
         <div class="contenedor-boton-guardar">
-            <a class="btn-guardar-fecha" id="btn_guardar">guardar</a>
-
-        </div>
-
-
-
-
-
+                <a id="btn_volver">volver</a>
+                <a class="btn-guardar-fecha" id="btn_guardar">guardar</a>
+            </div>
+    
 
     </section>
 
@@ -132,8 +117,10 @@
     </footer>
 
     <div id="mini_iaev_cont">
-        <a href="ayuda.html"><abbr title="¡Presioname si necesitas ayuda!"><img
-                    src="/Animagrading/general/imagen/mini_iaev.png" alt="mini iaevsito" id="mini_iaev"></abbr></a>
+        <a href="ayuda.html" id="burb_img">
+            <span id="burbuja">¡Presioname si necesitas ayuda!</span>
+            <img src="/Animagrading/general/imagen/mini_iaev.png" alt="mini iaevsito" id="mini_iaev">
+        </a>
     </div>
     <script src="/Animagrading/maestros/js/agregar_fecha.js" type="module"></script>
 </body>

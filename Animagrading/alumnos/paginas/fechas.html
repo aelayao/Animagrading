@@ -39,6 +39,7 @@
                     fechas
                 </a>
             </div>
+            <a id="btn_logout" title="Salir de la cuenta"></a>
         </nav>
 
     </header>
@@ -54,31 +55,11 @@
         <h1 id="titulo">Fechas importantes</h1>
 
         <!-- Contenedor de las tarjetas de fechas para el alumno -->
-        <div class="contenedor-fechas">
-            
-            <!-- Tarjeta 1 -->
-            <div class="tarjeta-mes">
-                <div id="mes-tarjeta-1" class="encabezado-mes">AGOSTO</div>
-                <div class="cuerpo-mes">
-                    <p id="texto-tarjeta-1">Exposición con Maestro el día 00 a las 9:00 para la materia de Nombre materia</p>
-                </div>
-            </div>
-
-            <!-- Tarjeta 2 -->
-            <div class="tarjeta-mes">
-                <div id="mes-tarjeta-1" class="encabezado-mes">SEPTIEMBRE</div>
-                <div class="cuerpo-mes">
-                    <p id="texto-tarjeta-2">Exposición con Maestro el día 00 a las 12:00 para la materia de Nombre materia</p>
-                </div>
-            </div>
-
+        <div class="contenedor-fechas_a"  id="contenedor-fechas">
+            <!-- integrar tarjetas con js -->
         </div>
+        <h2 id="txt_nada">No hay fechas establecidas aún</h2>
 
-
-
-         
-
-        
     </section>
 
     <footer>
@@ -87,7 +68,10 @@
     </footer>
 
     <div id="mini_iaev_cont">
-            <a href="ayuda.html"><abbr title="¡Presioname si necesitas ayuda!"><img src="/Animagrading/general/imagen/mini_iaev.png" alt="mini iaevsito" id="mini_iaev"></abbr></a>
+        <a href="ayuda.html" id="burb_img">
+            <span id="burbuja">¡Presioname si necesitas ayuda!</span>
+            <img src="/Animagrading/general/imagen/mini_iaev.png" alt="mini iaevsito" id="mini_iaev">
+        </a>
     </div>
     <script src="../js/fechas.js" type="module"></script>
 </body>

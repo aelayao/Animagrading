@@ -1,6 +1,6 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/12.15.0/firebase-app.js";
 import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.15.0/firebase-analytics.js";
-import { getFirestore, getDoc, doc} from "https://www.gstatic.com/firebasejs/12.15.0/firebase-firestore.js";
+import { getFirestore, collection, query, where, orderBy, limit, getDoc, getDocs, doc} from "https://www.gstatic.com/firebasejs/12.15.0/firebase-firestore.js";
 
 import { obsAuth } from "./obsrvr.js";
 import { btnLogout } from "./obsrvr.js";
@@ -25,7 +25,7 @@ const db = getFirestore(app); //inicializa cloud firestore
 let logout = document.querySelector('#btn_logout');
 let fechas_vacio = document.querySelector('#fechas_vacio');
 let fechas_lleno = document.querySelector('#fechas_lleno');
-let fechas_info = true; //si no hay fechas... (ir al if)
+let gpo = "";
 
 let asign_vacio = document.querySelector('#asign_vacio');
 let asign_lleno1= document.querySelector('#asign_lleno1');
@@ -48,6 +48,7 @@ obsAuth(async (user) => {
         const userData= docSnap.data();
         //get element by id es más rápido(?) 
         document.getElementById('usrNombre').innerText=userData.nombre;
+        gpo = userData.grupo;
       }
       else
       {
@@ -59,15 +60,35 @@ obsAuth(async (user) => {
       console.log("Error al obtener la información.");
     }
 
-        //revisar si hay información de fechas (preeliminar)
-    if (fechas_info == false){
-    fechas_vacio.style.display = 'flex';
-    fechas_lleno.style.display = 'none';
-    }
-    else{
-    fechas_vacio.style.display = 'none';
-    fechas_lleno.style.display = 'block';
-    }
+    //querry de si grupo tiene fechas asignadas y para ver qué fecha es la más cercana, uniendo con la query de fechas que ya teníamos jiji
+      const notdocRef = collection(db, "fechas");
+      const dt = new Date().toISOString().slice(0, 16);
+      const fechaCerc = query(notdocRef,
+        where("grupo", "==", gpo),
+        where("fechaHora", ">=", dt),
+        orderBy("fechaHora", "asc"),
+        limit(1)
+      );
+      const resultao = await getDocs(fechaCerc);
+      //si resultado no está vacio, entonces encontró que el maestro ha ingresado una fecha, y la fecha más cercana
+      if (!resultao.empty) {
+        
+        const notdocSnap = resultao.docs[0];
+        const fechaData = notdocSnap.data();
+        const d = new Date(fechaData.fechaHora);
+        //    v no time, cuidao. lenguaje y propiedades
+        let dia = d.toLocaleString('es-ES', { dateStyle: 'long' });
+        let hora = d.toLocaleString('es-ES', { timeStyle: 'short' });
+    
+        document.getElementById('dia').textContent = dia;
+        document.getElementById('hora').textContent = hora;
+        fechas_vacio.style.display = 'none';
+        fechas_lleno.style.display = 'block';
+      }
+      else {
+        fechas_vacio.style.display = 'flex';
+        fechas_lleno.style.display = 'none';
+      }
 
     //revisar si hay información de asignaciones (preeliminar)
     if (fechas_info == false){
