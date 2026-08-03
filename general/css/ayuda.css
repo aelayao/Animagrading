@@ -1,0 +1,185 @@
+:root{
+    --rojo_princip:#FF3D33;
+    --rojo_medio:#FFB1AD;
+    --rojo_claro:#FFD8D6;
+    --azul_princip:#1140CC;
+    --azul_medio:#9FB2EA;
+    --azul_claro:#CFD8F4;
+    --verde_princip:#CCF92B;
+    --verde_claro:#F1FDA4;
+    --verde_osc:#8EAE1E;
+    --verde_mosc:#667C15;
+    --naranja_princip:#F8B615;
+    --naranja_medio:#FAD372;
+    --azul_osc:#0F1E47;
+    --offwhite:#FFFFEF;
+    --shadow:rgba(15, 30, 71, 0.3);
+    --nav_gris:#909084;
+    --trama: radial-gradient(circle, var(--naranja_princip) 20%, transparent 25%);
+    --tooltip_b:rgba(15, 30, 71, 0.75);
+    --tooltip_w:rgba(255, 255, 255, 0.75);
+}
+*{
+	margin: 0;
+	padding: 0;
+}
+body{
+    font-family: CircularStd;
+    background-color: var(--azul_osc);
+}
+
+/*section*/
+#dentro{
+    height: 100%;
+    display: flex;
+    flex-flow: column;
+    width: 90%;
+    margin: auto;
+    padding: 1rem;
+    background-color: var(--offwhite);
+}
+/*top*/
+#top_info{
+    display: flex;
+    justify-content:space-between;
+    flex-flow: column;
+    margin: 1rem;
+    color: var(--azul_osc);
+}
+#titulo{
+    z-index: 3;
+    font-size: 55px;
+    font-family: "Genos Bold";
+}
+#trapezio{
+    z-index: 2;
+    position: absolute;
+    top:6%;
+    height: 3rem;
+    width: 35%;
+    background-color: var(--verde_princip);
+    clip-path: polygon(60px 0%, 100% 0%, calc(100% - 60px) 100%, 0% 100%);
+}
+#textura{
+    z-index: 1;
+    position: absolute;
+    top:4%;
+    height: 6rem;
+    width: 38%;
+}
+#top_info h2{
+    margin: .3rem 0;
+    font-family: Genos Bold;
+    font-size: 45px;
+}
+#top_info h3{
+    margin: .2rem 0;
+    font-family: Geologica;
+    font-size: 25px;
+}
+#top_info p{
+    font-size: 20px;
+}
+
+#btn_volver{
+    position: absolute;
+    top: 3%;
+    left: 90%;
+    width: 3rem;
+    height: 3rem;
+    border-radius: 100px;
+    padding: .7rem;
+    background-size: 45px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: var(--azul_princip);
+    background-image: url(/general/imagen/icon/ao.png);
+}
+#btn_volver:hover{
+    background-color: var(--azul_claro);
+    background-image: url(/general/imagen/icon/ao_hover.png);
+}
+
+/*nav*/
+nav{
+    margin: 1rem 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+.btn_naranj{
+    text-decoration: none;
+    font-family: Genos Bold;
+    font-size: 45px;
+    padding: 0 .7rem;
+    color: var(--azul_osc);
+    border-radius: 15px;
+    border: 2px solid var(--naranja_princip);
+}
+.btn_naranj:hover{
+    background-color: var(--naranja_princip);
+}
+#btn_select{
+    background-color: var(--naranja_princip);
+}
+
+/*section info*/
+#info{
+    margin: 1rem;
+    padding: 2rem;
+    background-color: var(--verde_claro);
+}
+#info h3{
+    margin: .2rem 0;
+    font-family: Geologica;
+    font-size: 25px;
+}
+#info p{
+    font-size: 20px;
+}
+.img{
+    align-self: center;
+    width: 60%;
+    height: 40%;
+}
+
+
+/*footer*/
+#footer{
+    font-family: Geologica;
+    display: flex;
+    position: fixed;
+    bottom: 0;
+    left: 5%;
+    width: 80%;
+    padding: .5rem 0;
+}
+
+#footer > p{
+    color:var(--azul_osc);
+    flex: 1 0 auto;
+}
+#footer > a{
+    color:var(--azul_osc);
+    flex: 1 0 auto;
+}
+#footer > a:hover{
+    color:var(--naranja_princip);
+}
+
+@font-face {
+	font-family: 'Geologica';
+	src: url('./../fuentes/Geologica-Black.ttf');
+}
+@font-face {
+	font-family: 'Genos Bold';
+	src: url('./../fuentes/Genos-ExtraBoldItalic.ttf');
+}
+@font-face {
+    font-family: 'ClanPro';
+    src: url('./../fuentes/clanpro-4.ttf');
+}
+@font-face {
+    font-family: 'CircularStd';
+    src: url('./../fuentes/circular-std-medium-500.ttf');
+}
