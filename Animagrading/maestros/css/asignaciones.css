@@ -60,6 +60,26 @@ nav div{
     margin-right: -60px;
     
 }
+#btn_logout{
+    position: fixed;
+    right: 2%;
+    top: 1%;
+    width: 2.8rem;
+    height: 2.8rem;
+    border-radius: 100px;
+    padding: .5rem;
+    border: 6px solid var(--naranja_medio);
+    background-size: 45px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: var(--naranja_princip);
+    background-image: url(/Animagrading/general/imagen/icon/logout.png);
+}
+#btn_logout:hover{
+    border: 6px solid var(--naranja_medio);
+    background-color: var(--naranja_claro);
+    background-image: url(/Animagrading/general/imagen/icon/logout_n.png);
+}
 /*pestañas de navegador*/
 .icon_nav{
     padding-top: .2rem;
@@ -98,14 +118,12 @@ nav div{
     z-index: 4;
 }
 #pest_calif a{
-    color:var(--verde_osc);
+    color:var(--verde_mosc);
 }
 #pest_calif:hover{
     z-index: 10;
 }
-#pest_calif a:hover{
-    color:var(--verde_mosc);
-}
+
 
 
 #pest_fecha{
@@ -178,7 +196,54 @@ nav div{
 
 /*contenido después de éste punto*/
 
-
+#asignaciones{
+    position: absolute;
+    top: 30%;
+    margin: 3rem 0 16rem 3rem;
+    width: 90%;
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+.fila{
+    display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  gap: 2rem;
+}
+.materia{
+    color: var(--azul_osc);
+    text-decoration: none;
+    display: none;
+    font-size: 35px;
+    text-align: center;
+    padding: 2rem;
+    margin: 2rem 0;
+    width: 55%;
+    border-radius: 15px;
+    border: 2px solid var(--naranja_princip);
+    font-family: Genos;
+}
+.materia:hover{
+    background-color: var(--naranja_princip);
+}
+.editar{
+    display: inline-block;
+    padding: 8px 25px;
+    color: var(--azul_osc);
+    border: 3px solid var(--verde_princip);
+    border-radius: 15px;
+    font-family: 'ClanPro';
+    font-size: 30px;
+    text-decoration: none;
+    white-space: nowrap;
+}
+.editar:hover{
+    text-decoration: underline;
+    background-color: var(--verde_princip);
+}
 
 /*footer*/
 footer{
@@ -207,8 +272,64 @@ footer > a:hover{
     align-items: flex-end; 
     justify-content: center;
 }
-#mini_iaev{
+#burb_img{
+    position: fixed;
+    bottom: 1rem;
+    right: 0;
+    width: 13rem;
+    height: 13rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+#burbuja{
+    visibility: hidden;
+    opacity: 0;
+    text-decoration: none;
+    color: var(--tooltip_b);
+    background-color: var(--tooltip_w);
+    border: 3px solid var(--tooltip_b);
+    border-radius: 15px;
     position: absolute;
+    bottom: 100%; 
+    right: 10%;
+    white-space: nowrap;
+    font-size: 22px;
+    padding: .2rem;
+    padding-top: .7rem;
+
+    transition: opacity 0.2s ease-in-out;
+    pointer-events: none;
+}
+#burbuja::after{
+    content: '';
+    position: absolute;
+    bottom: -12px;
+    right: 25px;
+    border-width: 10px 10px 0;
+    border-style: solid;
+    border-color: #FFFFEF transparent;
+    display: block;
+    width: 0;
+}
+#burbuja::before{
+    content: '';
+    position: absolute;
+    bottom: -14px; 
+    right: 22.5px;  
+    border-width: 12px 12px 0;
+    border-style: solid;
+    border-color: #0f1e47 transparent;
+    display: block;
+    width: 0;
+}
+
+#burb_img:hover #burbuja{
+    visibility: visible;
+    opacity: 1;
+}
+#mini_iaev{
+    position: fixed;
     bottom: 1rem;
     right: 0;
     width: 13rem;

@@ -163,6 +163,7 @@ nav div{
     background-color: var(--naranja_princip);
     clip-path: polygon(60px 0%, 100% 0%, calc(100% - 60px) 100%, 0% 100%);
 }
+
 .trama{
     position: absolute;
     top:27%;
@@ -249,6 +250,10 @@ nav div{
 
 .btn-agregar-fecha:hover {
     background-color: var(--verde_princip); /* Cambia suavemente de color al pasar el mouse */
+}
+#txt_nada{
+    position: absolute;
+    top:80%;
 }
 
 /*footer*/

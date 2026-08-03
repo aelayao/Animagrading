@@ -30,7 +30,7 @@ body{
 
 /*section*/
 #dentro{
-    height: 100vh;
+    height: 100%;
     display: flex;
     flex-flow: column;
     width: 90%;
@@ -136,6 +136,11 @@ nav{
 }
 #info p{
     font-size: 20px;
+}
+.img{
+    align-self: center;
+    width: 60%;
+    height: 40%;
 }
 
 

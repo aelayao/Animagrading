@@ -28,43 +28,65 @@ let tipoEvaluacion = document.querySelector('#campo-tipo');
 let fechaHora = document.querySelector('#campo-fecha');
 let guardar = document.querySelector('#btn_guardar');
 let volver = document.querySelector('#btn_volver');
+let matMaestr = "";
+
 
 //obtener información del usuario y listener
 obsAuth(async (user) => {
 
-  volver.addEventListener("click", (event) =>{
+  volver.addEventListener("click", (event) => {
     window.location.href = "./fechas.html"
   })
 
-	guardar.addEventListener("click", async (event) => {
-      event.preventDefault(); //previene que se guarden datos por error al recargar
-    
-      //no trim pq son puros select
-      let mat = materia.value;
-      let gpo = grupo.value;
-      let tipoEv = tipoEvaluacion.value;
-      let fechaHr = fechaHora.value;
-      const uid = user.uid;
+  const uid = user.uid;
+  const notdocRef = doc(db, "users", uid);
 
-      if(fechaHr == "")
-        {
-        alert("Por favor llene todos los campos");
-        return;
+  try {
+
+    const docSnap = await getDoc(notdocRef);
+    if (docSnap.exists()) {
+      const userData = docSnap.data();
+      if (uid != "WdQLH3OOurbZctwW5ZfMXc30KXS2") {
+        materia.value= userData.materia;
+        materia.disabled = true;
+      }
+      else{
+        materia.disabled = false;
       }
 
-      //cloud firestore crea un id con addDoc, contrario a setDoc, a ver
-      const docRef = await addDoc(collection(db, "fechas"),{
-        materia: mat,
-        grupo: gpo,
-        tipoEvaluacion: tipoEv,
-        fechaHora: fechaHr,
-        idMaestro: uid
-      })
+    }
+  }
+  catch (error) {
+    console.log("Error al obtener la información.");
+  }
 
-      alert("Fecha guardada con éxito!")
-      window.location.href = "./fechas.html"
+  guardar.addEventListener("click", async (event) => {
+    event.preventDefault(); //previene que se guarden datos por error al recargar
+
+    //no trim pq son puros select
+    let mat = materia.value;
+    let gpo = grupo.value;
+    let tipoEv = tipoEvaluacion.value;
+    let fechaHr = fechaHora.value;
+
+    if (fechaHr == "") {
+      alert("Por favor llene todos los campos");
+      return;
+    }
+
+    //cloud firestore crea un id con addDoc, contrario a setDoc, a ver
+    const docRef = await addDoc(collection(db, "fechas"), {
+      materia: mat,
+      grupo: gpo,
+      tipoEvaluacion: tipoEv,
+      fechaHora: fechaHr,
+      idMaestro: uid
     })
-    
+
+    alert("Fecha guardada con éxito!")
+    window.location.href = "./fechas.html"
+  })
+
 })
 
 //log out

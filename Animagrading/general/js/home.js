@@ -30,7 +30,9 @@ let asign_vacio = document.querySelector('#asign_vacio');
 let asign_lleno1 = document.querySelector('#asign_lleno1');
 let asign_lleno2 = document.querySelector('#asign_lleno2');
 let asign_lleno3 = document.querySelector('#asign_lleno3');
-let asign_info = false;
+let asign_info = true;
+
+let mat = "";
 
 obsAuth(async (user) => {
   console.log("listener tlabajando...")
@@ -46,6 +48,24 @@ obsAuth(async (user) => {
       const userData = docSnap.data();
       //get element by id es más rápido(?) 
       document.getElementById('usrNombre').innerText = userData.nombre;
+      if (userData.materia == "PRA") {
+        mat = "Producción Audiovisual";
+      }
+      else if (userData.materia == "ANA") {
+        mat = "Animación avanzada";
+      }
+      else if (userData.materia == "SIM") {
+        mat = "Simulación 3D";
+      }
+      document.getElementById('materia1').innerText = mat;
+      if (mat == "") {
+        asign_vacio.style.display = 'flex';
+        asign_lleno1.style.display = 'none';
+      }
+      else {
+        asign_vacio.style.display = 'none';
+        asign_lleno1.style.display = 'grid';
+      }
     }
     else {
       document.getElementById('usrNombre').innerText = 'Nombre';
@@ -67,7 +87,7 @@ obsAuth(async (user) => {
   const resultao = await getDocs(fechaCerc);
   //si resultado no está vacio, entonces encontró que el maestro ha ingresado una fecha, y la fecha más cercana
   if (!resultao.empty) {
-    
+
     const docSnap = resultao.docs[0];
     const fechaData = docSnap.data();
     const d = new Date(fechaData.fechaHora);
@@ -85,20 +105,6 @@ obsAuth(async (user) => {
     fechas_lleno.style.display = 'none';
   }
 
-
-  //revisar si hay información de asignaciones (preeliminar)
-  if (asign_info == false) {
-    asign_vacio.style.display = 'flex';
-    asign_lleno1.style.display = 'none';
-    asign_lleno2.style.display = 'none';
-    asign_lleno3.style.display = 'none';
-  }
-  else { //later check individually if there is more info
-    asign_vacio.style.display = 'none';
-    asign_lleno1.style.display = 'grid';
-    asign_lleno2.style.display = 'grid';
-    asign_lleno3.style.display = 'grid';
-  }
 
 })
 

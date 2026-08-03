@@ -1,7 +1,9 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/12.15.0/firebase-app.js";
 import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.15.0/firebase-analytics.js";
-import { getAuth, onAuthStateChanged, signOut} from "https://www.gstatic.com/firebasejs/12.15.0/firebase-auth.js";
-import { getFirestore, getDoc, doc} from "https://www.gstatic.com/firebasejs/12.15.0/firebase-firestore.js";
+import { getFirestore, setDoc, addDoc, collection, query, where, getDoc, getDocs, doc } from "https://www.gstatic.com/firebasejs/12.15.0/firebase-firestore.js";
+
+import { obsAuth } from "/Animagrading/alumnos/js/obsrvr.js";
+import { btnLogout } from "/Animagrading/alumnos/js/obsrvr.js";
 
 //identificadores de firebase
 const firebaseConfig = {
@@ -17,48 +19,151 @@ const firebaseConfig = {
 //Inicializar firebase
 const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
-const auth = getAuth();
 const db = getFirestore(app); //inicializa cloud firestore
 
+//variabbles
+let guardar = document.querySelector('#btn_guardar');
+let volver = document.querySelector('#btn_azul');
+let calif_total = document.querySelector('#calif_total');
+let retro = document.querySelector('#retro');
+let calif_inpt = document.querySelectorAll(".caja-nota");
+let nota1 = document.querySelector("#nota1");
+let nota2 = document.querySelector("#nota2");
+let nota3 = document.querySelector("#nota3");
 
-onAuthStateChanged(auth, (user) =>{
-	if (user) {
-		const uid = user.uid;
-		//mostrar graficamente:
-    const docRef = doc(db, "users", uid);
-    getDoc(docRef)
-    .then((docSnap)=>{
-      if (docSnap.exists()){
-        const userData= docSnap.data();
-        document.getElementById('usrNombre').innerText=userData.nombre;
+const modalConfirmacion = document.getElementById('modal-confirmacion');
+const botonCerrarModal = document.querySelector('.btn-cerrar-modal');
+
+
+//obtener información del usuario y listener
+obsAuth(async (user) => {
+
+  volver.addEventListener("click", (event) => {
+    window.location.href = "./grupos.html"
+  })
+
+  const uid = user.uid;
+  //si lo pongo afuera no funciona waa
+  let eq_num = document.getElementById("eqpo");
+
+  let obtnEq = new URLSearchParams(window.location.search);
+  let equipo_num = obtnEq.get("equipo");
+  let grupo_nom = obtnEq.get("grupo");
+
+  eq_num.textContent = equipo_num;
+
+  const docRef = doc(db, "rubricas", uid);
+  getDoc(docRef)
+  try {
+    const docSnap = await getDoc(docRef);
+
+    if (docSnap.exists()) {
+      const userData = docSnap.data();
+      document.querySelector('#rb1').innerText = userData.elemento1;
+      document.querySelector('#rb2').innerText = userData.elemento2;
+      document.querySelector('#rb3').innerText = userData.elemento3;
+
+      document.querySelector('#vl1').innerText = userData.valor_e1;
+      document.querySelector('#vl2').innerText = userData.valor_e2;
+      document.querySelector('#vl3').innerText = userData.valor_e3;
+    }
+  }
+  catch (error) {
+    console.log("Error al obtener la información.");
+  }
+
+  function calcTotal() {
+    let total = 0;
+    calif_inpt.forEach((input) => {
+      const valor = parseFloat(input.value) || 0;
+      total += valor;
+    });
+
+    calif_total.value = total;
+  }
+  //cada que se ingresa se va actualizando..
+  calif_inpt.forEach((input) => {
+    input.addEventListener("input", calcTotal);
+  });
+
+  guardar.addEventListener("click", async (event) => {
+    event.preventDefault();
+    //btnr valor final calcular el total
+    calcTotal();
+    let calif_final = parseFloat(calif_total.value)
+    let n1 = nota1.value;
+    let n2 = nota2.value;
+    let n3 = nota3.value;
+    let equipo_num = obtnEq.get("equipo");
+    let grupo_nom = obtnEq.get("grupo");
+    let retro_text = retro.value || "";
+
+    if (n1 == "" || n2 == "" || n3 == "") {
+      alert("Por favor rellene todos los campos.")
+      return;
+    }
+
+    if (calif_final > 100) {
+      alert("Por favor asegurese de que los valores a revisar no sumen más de 100.");
+      return;
+    }
+    try {
+      const yesdocRef = collection(db, "users");
+      const eq_alumnos = query(
+        yesdocRef,
+        where("grupo", "==", grupo_nom),
+        where("equipo", "==", equipo_num),
+        where("maestro", "==", false)
+      );
+
+      const eq_alumnoSnap = await getDocs(eq_alumnos);
+      //por si acasu
+      if (eq_alumnoSnap.empty) {
+        alert("No se encontraron alumnos en este equipo.");
+        return;
       }
-      else
-      {
-        console.log("pero que ha pasao");
+
+      let alumnosIds = [];
+      eq_alumnoSnap.forEach((doc) => {
+        alumnosIds.push(doc.id);
+      });
+
+      const evalRef = collection(db, "calificaciones");
+      await addDoc(evalRef, {
+        idMaestro: uid,
+        grupo: grupo_nom,
+        equipo: equipo_num,
+        calificacionTotal: calif_final,
+        retroalimentacion: retro_text,
+        valor_e1: n1,
+        valor_e2: n2,
+        valor_e3: n3,
+        alumnosEvaluados: alumnosIds
+      });
+      if (modalConfirmacion) {
+        modalConfirmacion.style.display = 'flex'; // se muestra la ventana
       }
-    })
-    .catch((error)=>{
-      console.log("Error al obtener la información.");
-    })
-	}
-	else
-	{
-    console.log("Deslog")
-    //window.location.href = "/Animagrading/index.html";
+    }
+    catch (error) {
+      console.log(error);
+    }
+
+
+
+    /*if (modalConfirmacion) {
+                modalConfirmacion.style.display = 'flex'; // se muestra la ventana
+            }*/
+  })
+
+  if (botonCerrarModal) {
+    botonCerrarModal.addEventListener('click', () => {
+      if (modalConfirmacion) {
+        modalConfirmacion.style.display = 'none'; // se oculta la ventana
+        window.location.href = "./grupos.html"
+      }
+    });
   }
 })
 
-// 
-// 1. Buscamos el botón de guardar y la ventana emergente
-const botonGuardar = document.querySelector('.btn-guardar');
-const modalConfirmacion = document.getElementById('modal-confirmacion');
-
-// 2. Al dar clic en guardar, encendemos la ventana
-if (botonGuardar) {
-    botonGuardar.addEventListener('click', (evento) => {
-        evento.preventDefault(); // Evita que la página intente procesar un formulario
-        if (modalConfirmacion) {
-            modalConfirmacion.style.display = 'flex'; // Muestra la ventana
-        }
-    });
-}
+//log out
+btnLogout();

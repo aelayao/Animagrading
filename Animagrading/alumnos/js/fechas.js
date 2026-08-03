@@ -76,7 +76,7 @@ obsAuth(async (user) => {
           <div class="tarjeta-mes">
             <div class="encabezado-mes"><span>${mes}</span></div>
             <div class="cuerpo-mes">
-              <p><span>${fechaData.tipoEvaluacion}</span> con el maestro <span>${fechaData.grupo}</span> 
+              <p><span>${fechaData.tipoEvaluacion}</span>
               el día <span>${dia}</span> a las <span>${hora}</span> para la materia de <span>${mat}</span></p>
             </div>
           </div>
