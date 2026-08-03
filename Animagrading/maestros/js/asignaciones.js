@@ -1,11 +1,10 @@
+// asignaciones.js
 import { initializeApp } from "https://www.gstatic.com/firebasejs/12.15.0/firebase-app.js";
 import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.15.0/firebase-analytics.js";
 import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/12.15.0/firebase-auth.js";
 import {
     getFirestore,
     collection,
-    query,
-    where,
     getDocs
 } from "https://www.gstatic.com/firebasejs/12.15.0/firebase-firestore.js";
 
@@ -30,21 +29,15 @@ const db = getFirestore(app);
 const parametros = new URLSearchParams(window.location.search);
 const idMateria = parametros.get("idMateria");
 
-// DATOS DE PRUEBA (BORRAR CUANDO ESTÉ LA BD)
-const AsignacionesPrueba = [
-    {
-        id: "grupo1",
-        nombre: "Grupo A"
-    },
-    {
-        id: "grupo2",
-        nombre: "Grupo B"
-    },
-    {
-        id: "grupo3",
-        nombre: "Grupo C"
-    }
-];
+// Función para formatear nombres de grupo
+function formatearNombreGrupo(id) {
+    return id
+        .replace(/_/g, ' ')
+        .replace(/-/g, ' ')
+        .split(' ')
+        .map(palabra => palabra.charAt(0).toUpperCase() + palabra.slice(1))
+        .join(' ');
+}
 
 onAuthStateChanged(auth, (user) => {
     if (!user) {
@@ -56,30 +49,93 @@ onAuthStateChanged(auth, (user) => {
 
 async function cargarGrupos() {
     const contenedor = document.getElementById("contenedorAsignaciones");
-    contenedor.innerHTML = "";
+    
+    // Mostrar mensaje de carga
+    contenedor.innerHTML = '<div class="cargando">Cargando grupos...</div>';
 
-    // DATOS DE PRUEBA
-    AsignacionesPrueba.forEach(grupo => {
-        crearBotonGrupo(grupo, contenedor);
-    });
+    try {
+        const querySnapshot = await getDocs(collection(db, "grupos"));
+        
+        // Limpiar el contenedor
+        contenedor.innerHTML = "";
+        
+        if (querySnapshot.empty) {
+            contenedor.innerHTML = `
+                <div class="mensaje-vacio">
+                    <p>📚 No hay grupos disponibles</p>
+                    <p class="sub-mensaje">Crea grupos en la colección "grupos" en Firestore</p>
+                </div>
+            `;
+            return;
+        }
 
-    // CUANDO ESTÉ LA BD, DESCOMENTAR ESTO Y BORRAR LO DE ARRIBA
-    /*
-    const consulta = query(
-        collection(db, "grupos"),
-        where("materia", "==", idMateria)
-    );
+        // Array para almacenar todos los grupos
+        const grupos = [];
 
-    const resultado = await getDocs(consulta);
+        // Iterar sobre cada documento (cada grupo)
+        querySnapshot.forEach((docSnapshot) => {
+            const grupoId = docSnapshot.id;
+            const data = docSnapshot.data();
+            
+            // Crear un objeto con los equipos del grupo
+            const equipos = [];
+            
+            // Iterar sobre las propiedades del documento para encontrar los equipos
+            for (const [key, value] of Object.entries(data)) {
+                
+                // Verificar si es un array (equipo)
+                if (Array.isArray(value)) {
+                    equipos.push({
+                        nombre: key, // "equipo 1", "equipo 2", etc.
+                        integrantes: value // Array de nombres
+                    });
+                } else if (typeof value === 'string') {
+                    equipos.push({
+                        nombre: key,
+                        integrantes: [value]
+                    });
+                }
+            }
+          
+            // Agregar el grupo
+            grupos.push({
+                id: grupoId,
+                nombre: formatearNombreGrupo(grupoId),
+                equipos: equipos
+            });
+        });
 
-    resultado.forEach((docGrupo) => {
-        const grupo = docGrupo.data();
-        crearBotonGrupo({
-            id: docGrupo.id,
-            nombre: grupo.nombre
-        }, contenedor);
-    });
-    */
+        // Ordenar grupos alfabéticamente
+        grupos.sort((a, b) => a.nombre.localeCompare(b.nombre));
+
+        // Verificar si hay grupos
+        if (grupos.length === 0) {
+            contenedor.innerHTML = `
+                <div class="mensaje-vacio">
+                    <p>📋 No se encontraron grupos</p>
+                    <p class="sub-mensaje">Agrega documentos en la colección "grupos" en Firestore</p>
+                </div>
+            `;
+            return;
+        }
+
+        // Crear tarjetas para cada grupo
+        grupos.forEach(grupo => {
+            crearBotonGrupo(grupo, contenedor);
+        });
+
+    } catch (error) {
+        console.error("Error al cargar grupos:", error);
+        contenedor.innerHTML = `
+            <div class="mensaje-error">
+                <p>❌ Error al cargar los grupos</p>
+                <p class="sub-mensaje">${error.message}</p>
+                <button class="btn-reintentar" onclick="location.reload()">
+                    🔄 Reintentar
+                </button>
+            </div>
+        `;
+    }
 }
 
 function crearBotonGrupo(grupo, contenedor) {
@@ -88,13 +144,47 @@ function crearBotonGrupo(grupo, contenedor) {
 
     const btn = document.createElement("button");
     btn.className = "btnGrupo";
-    btn.textContent = grupo.nombre;
-    btn.dataset.id = grupo.id; // Guardamos el ID del grupo
+    
+    // Mostrar el nombre del grupo y cantidad de equipos
+    const textoEquipos = grupo.equipos.length === 0 ? " (Sin equipos)" : ` (${grupo.equipos.length} equipos)`;
+    btn.textContent = `${grupo.nombre}${textoEquipos}`;
+    
+    btn.dataset.id = grupo.id;
+    // Guardar los equipos como JSON para pasarlos a la siguiente página
+    btn.dataset.equipos = JSON.stringify(grupo.equipos);
 
-    // Al hacer clic, redirige a la página de alumnos con el ID del grupo
+    // Si no tiene equipos, cambiar estilo
+    if (grupo.equipos.length === 0) {
+        btn.style.opacity = "0.6";
+        btn.title = "Este grupo no tiene equipos asignados";
+    } else {
+        // Tooltip con los nombres de los equipos
+        const nombresEquipos = grupo.equipos.map(e => e.nombre).join(', ');
+        btn.title = `Equipos: ${nombresEquipos}`;
+    }
+
     btn.addEventListener("click", function() {
-        // Redirige a grupos.html con el ID del grupo como parámetro
-        window.location.href = `grupos.html?idGrupo=${this.dataset.id}&idMateria=${idMateria}`;
+        // Si no tiene equipos, mostrar alerta
+        const equipos = JSON.parse(this.dataset.equipos);
+        if (equipos.length === 0) {
+            alert('Este grupo no tiene equipos asignados. Agrega equipos en Firestore.');
+            return;
+        }
+        
+        // Codificar los datos para la URL
+        const equiposData = encodeURIComponent(this.dataset.equipos);
+        const grupoId = this.dataset.id;
+        const grupoNombre = grupo.nombre;
+        
+        // Construir la URL con todos los parámetros
+        let url = `grupos.html?idGrupo=${grupoId}&nombreGrupo=${encodeURIComponent(grupoNombre)}&equipos=${equiposData}`;
+        
+        if (idMateria) {
+            url += `&idMateria=${idMateria}`;
+        }
+        
+        // Redirigir a la página de grupos
+        window.location.href = url;
     });
 
     tarjeta.appendChild(btn);
