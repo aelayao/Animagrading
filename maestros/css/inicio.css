@@ -79,12 +79,12 @@ nav div{
     background-position: center;
     background-repeat: no-repeat;
     background-color: var(--naranja_princip);
-    background-image: url(/general/imagen/icon/logout.png);
+    background-image: url(../../general/imagen/icon/logout.png);
 }
 #btn_logout:hover{
     border: 6px solid var(--naranja_medio);
     background-color: var(--naranja_claro);
-    background-image: url(/general/imagen/icon/logout_n.png);
+    background-image: url(../../general/imagen/icon/logout_n.png);
 }
 
 /*pestañas de navegador*/
@@ -385,17 +385,17 @@ footer > a:hover{
 
 @font-face {
 	font-family: 'Geologica';
-	src: url('/general/fuentes/Geologica-Black.ttf');
+	src: url('../../general/fuentes/Geologica-Black.ttf');
 }
 @font-face {
 	font-family: 'Genos Bold';
-	src: url('/general/fuentes/Genos-ExtraBoldItalic.ttf');
+	src: url('../../general/fuentes/Genos-ExtraBoldItalic.ttf');
 }
 @font-face {
     font-family: 'ClanPro';
-    src: url('/general/fuentes/clanpro-4.ttf');
+    src: url('../../general/fuentes/clanpro-4.ttf');
 }
 @font-face {
     font-family: 'Circular std';
-    src: url('/general/fuentes/circular-std-medium-500.ttf');
+    src: url('../../general/fuentes/circular-std-medium-500.ttf');
 }
