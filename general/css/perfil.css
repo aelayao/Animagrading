@@ -61,7 +61,7 @@ body, html{
     height: 40rem;
     padding:1rem;
     filter: drop-shadow(-5px 4px 4px var(--shadow));
-    background-image: url(/general/imagen/cuad.png);
+    background-image: url(../../general/imagen/cuad.png);
     background-color: var(--offwhite);
 }
 #content{
@@ -162,11 +162,11 @@ input{
     background-position: center;
     background-repeat: no-repeat;
     background-color: var(--azul_princip);
-    background-image: url(/general/imagen/icon/ao.png);
+    background-image: url(../../general/imagen/icon/ao.png);
 }
 #btn_volver:hover{
     background-color: var(--azul_claro);
-    background-image: url(/general/imagen/icon/ao_hover.png);
+    background-image: url(../../general/imagen/icon/ao_hover.png);
 }
 #btn_logout{
     transform: rotate(3deg);
@@ -182,12 +182,12 @@ input{
     background-position: center;
     background-repeat: no-repeat;
     background-color: var(--naranja_princip);
-    background-image: url(/general/imagen/icon/logout.png);
+    background-image: url(../general/imagen/icon/logout.png);
 }
 #btn_logout:hover{
     border: 6px solid var(--naranja_medio);
     background-color: var(--naranja_claro);
-    background-image: url(/general/imagen/icon/logout_n.png);
+    background-image: url(../general/imagen/icon/logout_n.png);
 }
 
 #mini_iaev_cont{
