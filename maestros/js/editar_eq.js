@@ -2,8 +2,8 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/12.15.0/fireba
 import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.15.0/firebase-analytics.js";
 import { getFirestore, collection, query, where, orderBy, limit, getDoc, getDocs, doc, updateDoc } from "https://www.gstatic.com/firebasejs/12.15.0/firebase-firestore.js";
 
-import { obsAuth } from "/alumnos/js/obsrvr.js";
-import { btnLogout } from "/alumnos/js/obsrvr.js";
+import { obsAuth } from "../../alumnos/js/obsrvr.js";
+import { btnLogout } from "../../alumnos/js/obsrvr.js";
 
 //identificadores de firebase
 const firebaseConfig = {
