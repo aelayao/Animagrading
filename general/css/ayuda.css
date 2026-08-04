@@ -93,11 +93,11 @@ body{
     background-position: center;
     background-repeat: no-repeat;
     background-color: var(--azul_princip);
-    background-image: url(/general/imagen/icon/ao.png);
+    background-image: url(../../general/imagen/icon/ao.png);
 }
 #btn_volver:hover{
     background-color: var(--azul_claro);
-    background-image: url(/general/imagen/icon/ao_hover.png);
+    background-image: url(../../general/imagen/icon/ao_hover.png);
 }
 
 /*nav*/
