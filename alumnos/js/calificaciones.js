@@ -85,18 +85,18 @@ obsAuth(async (user) => {
             <ul>
               <li>
                 <span>${rubricaData.elemento1 || "Elemento 1"}</span> - 
-                Valor: <span>${rubricaData.valor_e1 || 0}</span>% / 
-                <span class="calif">${evaluacioData.valor_e1 ?? 0}%</span>
+                Valor: <span>${evaluacioData.valor_e1 ?? 0}</span>% / 
+                <span class="calif">${rubricaData.valor_e1 || 0}%</span>
               </li>
               <li>
                 <span>${rubricaData.elemento2 || "Elemento 2"}</span> - 
-                Valor: <span>${rubricaData.valor_e2 || 0}</span>% / 
-                <span class="calif">${evaluacioData.valor_e2 ?? 0}%</span>
+                Valor: <span>${evaluacioData.valor_e2 ?? 0}</span>% / 
+                <span class="calif">${rubricaData.valor_e2 || 0}%</span>
               </li>
               <li>
                 <span>${rubricaData.elemento3 || "Elemento 3"}</span> - 
-                Valor: <span>${rubricaData.valor_e3 || 0}</span>% / 
-                <span class="calif">${evaluacioData.valor_e3 ?? 0}%</span>
+                Valor: <span>${evaluacioData.valor_e3 ?? 0}</span>% / 
+                <span class="calif">${rubricaData.valor_e3 || 0}%</span>
               </li>
             </ul>
 
