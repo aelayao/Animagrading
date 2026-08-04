@@ -103,7 +103,7 @@ registrar.addEventListener("click", async (event) => {
 
     const docRef = doc(db, "users", user.uid);
     await setDoc(docRef, userData);
-    window.location.href = "/alumnos/paginas/inicio.html";
+    window.location.href = "../../alumnos/paginas/inicio.html";
     /*.then(() => {
     })
     .catch((error) => {

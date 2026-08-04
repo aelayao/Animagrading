@@ -46,10 +46,10 @@ ingresar.addEventListener("click", ()=>{
         localStorage.setItem('loggedInUserId', user.uid);
 
         if(userData.maestro === true || userData.maestro === "true"){
-          window.location.href = "/maestros/paginas/inicio.html";
+          window.location.href = "../../maestros/paginas/inicio.html";
         }
         else{
-          window.location.href = "/alumnos/paginas/inicio.html";
+          window.location.href = "../../alumnos/paginas/inicio.html";
         }
         
       }
